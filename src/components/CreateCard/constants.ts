@@ -1,4 +1,4 @@
-import * as Yup from 'yup'
+import { object, string } from 'yup'
 
 export const initialValues = {
     dateOfBirth: '',
@@ -8,11 +8,11 @@ export const initialValues = {
     alive: '',
 }
 
-export const validationNewCardSchema = Yup.object().shape({
-    dateOfBirth: Yup.string().required('Please enter a valid date'),
-    gender: Yup.string().required('required'),
-    hogwartsStudent: Yup.string().required('required'),
-    house: Yup.string().required('required'),
-    alive: Yup.string().required('required'),
+export const validationNewCardSchema = object({
+    dateOfBirth: string().required('Please enter a valid date'),
+    gender: string().required('required'),
+    hogwartsStudent: string().required('required'),
+    house: string().required('required'),
+    alive: string().required('required'),
 
 })
