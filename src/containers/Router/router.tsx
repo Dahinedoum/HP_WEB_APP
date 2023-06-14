@@ -7,7 +7,7 @@ import Profile from '../../views/Profile/profile'
 import Create from '../../views/Create/create'
 import AllCharacters from '../../views/AllCharacters/allCharacters'
 import Students from '../../views/Students/students'
-
+import Staff from '../../views/Staff/staff'
 
 const Router: FC = () => {
   return (
@@ -20,6 +20,7 @@ const Router: FC = () => {
         <Route path="/create" element={<Create />} />
         <Route path="/characters" element={<AllCharacters />} />
         <Route path="/students" element={<Students />} />
+        <Route path="/staff" element={<Staff />} />
         <Route path="/*" element={<Navigate replace to="/login" />} />
       </Routes>
     </BrowserRouter>
