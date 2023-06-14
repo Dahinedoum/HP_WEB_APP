@@ -19,6 +19,10 @@ const Landing: FC<Props> = ({}) => {
     navigate('/characters')
   }, [navigate])
 
+  const handleGoToStudents = useCallback(() => {
+    navigate('/students')
+  }, [navigate])
+
   return (
     <LandingContainer>
       <Header />
@@ -36,7 +40,7 @@ const Landing: FC<Props> = ({}) => {
             <CategoryHeaderContainer>
               <Image src="/travel-3238442_1920.jpg" alt="" />
             </CategoryHeaderContainer>
-            <Button>View Students</Button>
+            <Button onClick={handleGoToStudents}>View Students</Button>
           </CategoryContent>
           <CategoryContent>
             <CategoryHeaderContainer>

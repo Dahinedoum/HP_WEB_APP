@@ -5,6 +5,7 @@ import Signup from '../../views/Auth/Signup/signup'
 import Landing from '../../views/Landing/landing'
 import Profile from '../../views/Profile/profile'
 import AllCharacters from '../../views/AllCharacters/allCharacters'
+import Students from '../../views/Students/students'
 
 const Router: FC = () => {
   return (
@@ -15,6 +16,7 @@ const Router: FC = () => {
         <Route path="/landing" element={<Landing />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/characters" element={<AllCharacters />} />
+        <Route path="/students" element={<Students />} />
         <Route path="/*" element={<Navigate replace to="/login" />} />
       </Routes>
     </BrowserRouter>

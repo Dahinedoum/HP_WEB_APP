@@ -7,7 +7,7 @@ export const getCachedHarryPotterCharacters = (): Character[] => {
   return response ? JSON.parse(response) : []
 }
 
-export const setCachedHarryPotterCharacters = (allCharacters: any) => {
+export const setCachedHarryPotterCharacters = (allCharacters: Character[]) => {
   window.localStorage.setItem(
     HP_ALL_CHARACTERS_KEY,
     JSON.stringify(allCharacters)
