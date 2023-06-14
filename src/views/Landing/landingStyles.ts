@@ -22,25 +22,19 @@ export const LandingCards = styled.div`
 `
 
 export const Button = styled.button`
-  position: fixed;
   top: 110px;
-  left: 20px;
-  background-color: transparent;
-  color: white;
   padding: 10px 20px;
-  border: none;
-  border-radius: 50px;
+  border-radius: 10px;
   cursor: pointer;
   border: 2px solid white;
   font-size: 16px;
-  transition: all 0.3s ease-in-out;
   min-width: 15px;
+  width: 100%;
+  background-color: rgba(204, 86, 86, 0.5);
+  transition: all 0.3s ease-in-out;
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-color: #3f51b5;
-    text-decoration: underline;
-    text-shadow: 0px 0px 10px #ffffff;
+    background-color: rgba(204, 86, 86, 0.8);
   }
 
   &:focus {
@@ -59,3 +53,16 @@ export const Button = styled.button`
     top: 95px;
   }
 `
+
+export const CategoryContainer = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  gap: 16px;
+  margin-top: 100px;
+  justify-content: space-evenly;
+`
+
+export const CategoryContent = styled.div`
+  border: 1px solid maroon;
+`
+export const CategoryHeaderContainer = styled.div``
