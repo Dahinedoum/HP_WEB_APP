@@ -8,6 +8,7 @@ import {
 import Header from '../../components/Header/header'
 import Card from '../../components/Card/card'
 import { Character } from '../../models/characters'
+import BackButton from '../../components/BackButton/backButton'
 
 const AllCharacters: FC = () => {
   const [characters, setCharacters] = useState<Character[]>([])
@@ -27,6 +28,7 @@ const AllCharacters: FC = () => {
     <AllCharactersContainer>
       <Header />
       <AllCharactersContent>
+        <BackButton />
         <AllCharactersCards>
           {characters.map((character, index) => (
             <Card key={index} character={character} />
