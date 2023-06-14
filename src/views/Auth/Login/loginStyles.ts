@@ -2,7 +2,6 @@ import styled from 'styled-components'
 import { Link as DefaultLink } from 'react-router-dom'
 
 export const Container = styled.div`
-  background: url(https://pixabay.com/get/gb58748838936aeefa9396f3823e8f4c0983ae6ab69e4c96ee8c671fa04dc17042ce264d0ac38f13f73b61d314bc61b68.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
