@@ -7,16 +7,22 @@ import {
   Footer,
   FooterContent,
   Header,
+  Image,
 } from './cardStyles'
 
-const Card: FC<Props> = ({ name, wand, onClick }) => {
+const Card: FC<Props> = ({ character, onClick }) => {
   return (
     <Container>
       <Content>
-        <Header>{name}</Header>
+        <Header>{character.name}</Header>
+        <Image src={character.image} alt={character.name} />
         <Footer>
           <FooterContent>
-            <ExtraInfo>{wand}</ExtraInfo>
+            <ExtraInfo>{character.dateOfBirth}</ExtraInfo>
+            <ExtraInfo>{character.gender}</ExtraInfo>
+            <ExtraInfo>{character.hogwartsStudent}</ExtraInfo>
+            <ExtraInfo>{character.house}</ExtraInfo>
+            <ExtraInfo>{character.alive}</ExtraInfo>
           </FooterContent>
         </Footer>
       </Content>

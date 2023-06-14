@@ -14,7 +14,7 @@ const Router: FC = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/landing" element={<Landing />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/allCharacters" element={<AllCharacters />} />
+        <Route path="/characters" element={<AllCharacters />} />
         <Route path="/*" element={<Navigate replace to="/login" />} />
       </Routes>
     </BrowserRouter>
