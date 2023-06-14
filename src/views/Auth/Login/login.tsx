@@ -15,11 +15,13 @@ import {
   Link,
   Title,
 } from './loginStyles'
+import VideoBackground from '../../../components/VideoBackground/videoBackground'
 
 const Login: FC = () => {
   const { handleOnSubmit } = useLogic()
   return (
     <Container>
+      <VideoBackground videoSrc="/videoBackground.mp4" />
       <Formik
         initialValues={InitialValues}
         validationSchema={ValidationSchema}
