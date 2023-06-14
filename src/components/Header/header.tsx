@@ -10,12 +10,17 @@ const Header: FC<Props> = ({}) => {
     navigate('/profile')
   }, [navigate])
 
+  const handleGoToCreate = useCallback(() => {
+    navigate('/create')
+  }, [navigate])
+
   return (
     <Container>
       <ButtonContainer>
         <Button>synchronize</Button>
         <Button onClick={handleGoToProfile}>Profile</Button>
         <Button>Logout</Button>
+        <Button onClick={handleGoToCreate}>Create</Button>
       </ButtonContainer>
     </Container>
   )
