@@ -14,6 +14,13 @@ export const AllCharactersContent = styled.div`
   margin-right: auto;
 `
 
+export const AllCharactersCards = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+`
+
 export const Button = styled.button`
   position: fixed;
   top: 110px;
