@@ -1,5 +1,5 @@
 import { FC, memo, useCallback, useEffect, useState } from 'react'
-import { getHarryPotterCharacters } from '../../services/harryPotter/harry'
+import { getHarryPotterCharacters } from '../../services/harryPotter/allCharacters'
 import {
   AllCharactersCards,
   AllCharactersContainer,
