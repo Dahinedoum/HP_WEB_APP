@@ -1,4 +1,4 @@
-import { FC, memo } from 'react'
+import { FC, memo, useCallback } from 'react'
 import {
   CategoryContainer,
   CategoryContent,
@@ -14,6 +14,11 @@ import { useNavigate } from 'react-router-dom'
 import type { Props } from './landingTypes'
 
 const Landing: FC<Props> = ({}) => {
+  const navigate = useNavigate()
+  const handleGoToAllCharacters = useCallback(() => {
+    navigate('/characters')
+  }, [navigate])
+
   return (
     <LandingContainer>
       <Header />
@@ -23,7 +28,9 @@ const Landing: FC<Props> = ({}) => {
             <CategoryHeaderContainer>
               <Image src="/hogwarts-5078578_1920.jpg" alt="" />
             </CategoryHeaderContainer>
-            <Button>View All Characters</Button>
+            <Button onClick={handleGoToAllCharacters}>
+              View All Characters
+            </Button>
           </CategoryContent>
           <CategoryContent>
             <CategoryHeaderContainer>

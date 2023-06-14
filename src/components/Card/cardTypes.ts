@@ -1,5 +1,6 @@
+import { Character } from '../../models/characters'
+
 export type Props = {
-  name: string
-  wand: string
+  character: Character
   onClick?: () => void
 }

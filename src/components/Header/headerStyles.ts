@@ -12,7 +12,7 @@ export const Container = styled.header`
   justify-content: flex-end;
   padding: 0 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 100;
+  z-index: 1;
 
   @media screen and (max-width: 768px) {
     justify-content: center;
@@ -35,7 +35,7 @@ export const Button = styled.button`
   padding: 10px 20px;
   border: none;
   margin-right: 10px;
-  
+
   cursor: pointer;
   border: 2px solid white;
   font-size: 15px;
@@ -43,7 +43,7 @@ export const Button = styled.button`
   min-width: 115px;
 
   &:hover {
-    background-color: goldenrod ;
+    background-color: goldenrod;
     border-color: gold;
     text-decoration: underline;
     text-shadow: 0px 0px 10px #ffffff;
