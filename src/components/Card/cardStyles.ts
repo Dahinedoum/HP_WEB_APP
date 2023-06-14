@@ -3,9 +3,11 @@ import styled from 'styled-components'
 export const Container = styled.div`
   border: 1px solid rgba(128, 0, 0, 0.3);
   border-radius: 5px;
-  height: 240px;
-  width: 150px;
+  height: 500px;
+  width: 500px;
   background-color: rgba(255, 254, 244, 0.8);
+  margin-top: 100px;
+  z-index: 3;
 `
 export const Content = styled.div`
   padding: 16px;
@@ -25,4 +27,8 @@ export const FooterContent = styled.div`
 `
 export const ExtraInfo = styled.div`
   margin-bottom: 25px;
+`
+export const Image = styled.img`
+  width: 200px;
+  height: 200px;
 `
