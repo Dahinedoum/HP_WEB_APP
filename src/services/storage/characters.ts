@@ -14,6 +14,20 @@ export const setCachedHarryPotterCharacters = (allCharacters: Character[]) => {
   )
 }
 
+
+
+export const addNewCharacter = (data: CharacterInput) => {
+  const characterList = getCachedHarryPotterCharacters()
+  setCachedHarryPotterCharacters([...characterList, data as Character])
+}
+
+export type CharacterInput = {
+  name: string
+  dateOfBirth: string
+  gender: string 
+  house: string
+}
+
 export const editCachedCharacter = (id: string, values: EditCharacterInput) => {
   const cachedCharacters = getCachedHarryPotterCharacters()
   const currentCharacter = cachedCharacters.find(
@@ -29,3 +43,4 @@ export const editCachedCharacter = (id: string, values: EditCharacterInput) => {
 export const resetCharactersCache = () => {
   window.localStorage.removeItem(HP_ALL_CHARACTERS_KEY)
 }
+
