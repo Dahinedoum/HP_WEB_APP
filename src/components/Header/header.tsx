@@ -2,9 +2,21 @@ import { FC, memo, useCallback } from 'react'
 import { Container, ButtonContainer, Button } from './headerStyles'
 import { useNavigate } from 'react-router-dom'
 import type { Props } from './headerTypes'
+import { resetCharactersCache } from '../../services/storage/characters'
+import { resetSpellsCache } from '../../services/storage/spells'
+import { resetStaffCache } from '../../services/storage/staff'
+import { resetStudentsCache } from '../../services/storage/students'
 
 const Header: FC<Props> = ({}) => {
   const navigate = useNavigate()
+
+  const handleReset = useCallback(() => {
+    resetCharactersCache()
+    resetSpellsCache()
+    resetStaffCache()
+    resetStudentsCache()
+    navigate('/')
+  }, [navigate])
 
   const handleGoToProfile = useCallback(() => {
     navigate('/profile')
@@ -17,7 +29,7 @@ const Header: FC<Props> = ({}) => {
   return (
     <Container>
       <ButtonContainer>
-        <Button>synchronize</Button>
+        <Button onClick={handleReset}>synchronize</Button>
         <Button onClick={handleGoToProfile}>Profile</Button>
         <Button>Logout</Button>
         <Button onClick={handleGoToCreate}>Create</Button>
