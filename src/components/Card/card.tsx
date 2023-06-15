@@ -11,23 +11,39 @@ import {
 } from './cardStyles'
 
 const Card: FC<Props> = ({ character, onClick }) => {
-  return (
-    <Container>
-      <Content>
-        <Header>{character.name}</Header>
-        <Image src={character.image} alt={character.name} />
-        <Footer>
-          <FooterContent>
-            <ExtraInfo>{character.dateOfBirth}</ExtraInfo>
-            <ExtraInfo>{character.gender}</ExtraInfo>
-            <ExtraInfo>{character.hogwartsStudent}</ExtraInfo>
-            <ExtraInfo>{character.house}</ExtraInfo>
-            <ExtraInfo>{character.alive}</ExtraInfo>
-          </FooterContent>
-        </Footer>
-      </Content>
-    </Container>
-  )
+  if (character.image) {
+    return (
+      <Container>
+        <Content>
+          <Header>{character.name}</Header>
+          <Image src={character.image} alt={character.name} />
+          <Footer>
+            <FooterContent>
+              <ExtraInfo>{character.dateOfBirth}</ExtraInfo>
+              <ExtraInfo>{character.gender}</ExtraInfo>
+              <ExtraInfo>{character.house}</ExtraInfo>
+            </FooterContent>
+          </Footer>
+        </Content>
+      </Container>
+    )
+  } else {
+    return (
+      <Container>
+        <Content>
+          <Header>{character.name}</Header>
+          <Image src="/dobby.png" alt={character.name} />
+          <Footer>
+            <FooterContent>
+              <ExtraInfo>{character.dateOfBirth}</ExtraInfo>
+              <ExtraInfo>{character.gender}</ExtraInfo>
+              <ExtraInfo>{character.house}</ExtraInfo>
+            </FooterContent>
+          </Footer>
+        </Content>
+      </Container>
+    )
+  }
 }
 
 export default memo(Card)

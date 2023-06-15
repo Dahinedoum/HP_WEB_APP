@@ -1,7 +1,11 @@
 import styled from 'styled-components'
-import { Link as DefaultLink } from 'react-router-dom'
 
-export const Container = styled.div``
+export const Container = styled.div`
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+`
 
 export const Form = styled.form`
   height: 500px;
@@ -111,18 +115,4 @@ export const Info = styled.p`
   font-size: 14px;
   margin-top: 30px;
   text-align: center;
-`
-
-export const Link = styled(DefaultLink)`
-  color: rgba(252, 218, 139);
-  font-size: 14px;
-  margin-top: 16px;
-  text-align: center;
-  text-decoration: none;
-
-  &:hover {
-    color: rgba(252, 218, 139);
-    text-shadow: 0px 0px 10px rgba(252, 218, 120);
-    transition: 200ms ease-in-out;
-  }
 `

@@ -6,8 +6,7 @@ export const Container = styled.div`
   height: 500px;
   width: 200px;
   background-color: rgba(255, 254, 244, 0.8);
-  margin-top: 30px;
-  z-index: 1;
+  margin-top: 100px;
 `
 export const Content = styled.div`
   padding: 16px;

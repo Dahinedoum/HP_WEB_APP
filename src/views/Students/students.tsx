@@ -9,6 +9,7 @@ import {
 } from './studentsStyles'
 import { getHarryPotterStudents } from '../../services/harryPotter/students'
 import BackButton from '../../components/BackButton/backButton'
+import Footer from '../../components/Footer/footer'
 
 const Students: FC = () => {
   const [students, setStudents] = useState<Character[]>([])
@@ -23,6 +24,10 @@ const Students: FC = () => {
   useEffect(() => {
     fetchStudents()
   }, [fetchStudents])
+
+  if (isLoading) {
+    ;<div>AQUI VA LOADING</div>
+  }
   return (
     <StudentsContainer>
       <Header />
@@ -34,6 +39,7 @@ const Students: FC = () => {
           ))}
         </StudentsCards>
       </StudentsContent>
+      <Footer />
     </StudentsContainer>
   )
 }

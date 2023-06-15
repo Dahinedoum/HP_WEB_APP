@@ -5,6 +5,7 @@ import BackButton from '../../components/BackButton/backButton'
 import Card from '../../components/Card/card'
 import { Character } from '../../models/characters'
 import { getHarryPotterStaff } from '../../services/harryPotter/staff'
+import Footer from '../../components/Footer/footer'
 
 const Staff: FC = () => {
   const [staffs, setStaffs] = useState<Character[]>([])
@@ -20,6 +21,10 @@ const Staff: FC = () => {
     fetchStaff()
   }, [fetchStaff])
 
+  if (isLoading) {
+    ;<div>AQUI VA LOADING</div>
+  }
+
   return (
     <Container>
       <Header />
@@ -31,6 +36,7 @@ const Staff: FC = () => {
           ))}
         </Cards>
       </Content>
+      <Footer />
     </Container>
   )
 }

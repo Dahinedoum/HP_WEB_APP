@@ -10,3 +10,7 @@ export const getCachedHarryPotterStudents = (): Character[] => {
 export const setCachedHarryPotterStudents = (students: Character[]) => {
   window.localStorage.setItem(HP_STUDENTS_KEY, JSON.stringify(students))
 }
+
+export const resetStudentsCache = () => {
+  window.localStorage.removeItem(HP_STUDENTS_KEY)
+}
