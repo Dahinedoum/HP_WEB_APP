@@ -13,3 +13,16 @@ export const setCachedHarryPotterCharacters = (allCharacters: Character[]) => {
     JSON.stringify(allCharacters)
   )
 }
+
+
+export const addNewCharacter = (data: CharacterInput) => {
+  const characterList = getCachedHarryPotterCharacters()
+  setCachedHarryPotterCharacters([...characterList, data as Character])
+}
+
+export type CharacterInput = {
+  name: string
+  dateOfBirth: string
+  gender: string 
+  house: string
+}
