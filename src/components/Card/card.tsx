@@ -20,9 +20,7 @@ const Card: FC<Props> = ({ character, onClick }) => {
           <FooterContent>
             <ExtraInfo>{character.dateOfBirth}</ExtraInfo>
             <ExtraInfo>{character.gender}</ExtraInfo>
-            <ExtraInfo>{character.hogwartsStudent}</ExtraInfo>
             <ExtraInfo>{character.house}</ExtraInfo>
-            <ExtraInfo>{character.alive}</ExtraInfo>
           </FooterContent>
         </Footer>
       </Content>
