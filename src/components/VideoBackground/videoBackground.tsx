@@ -12,6 +12,7 @@ const VideoBackground: FC<Props> = ({ videoSrc }) => {
       <Video autoPlay loop>
         <Source src={videoSrc} type="video/mp4" />
       </Video>
+      
     </VideoBackgroundContainer>
   )
 }

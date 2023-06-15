@@ -5,7 +5,6 @@ import { Formik } from 'formik'
 import BackButton from '../../components/BackButton/backButton'
 import { validationNewCardSchema, initialValues } from './constants'
 import Footer from '../../components/Footer/footer'
-// import VideoBackground from '../../components/VideoBackground/videoBackground'
 
 import useLogic from '../../views/Create/logic'
 import Header from '../../components/Header/header'
@@ -14,7 +13,7 @@ const NewCard: FC = () => {
   const { addNewCharacter } = useLogic()
   return (
     <>
-      {/* <VideoBackground videoSrc="" /> */}
+      {/* <VideoBackground src="" /> */}
 
       <InputController>
         <b>Create your own Character</b>
