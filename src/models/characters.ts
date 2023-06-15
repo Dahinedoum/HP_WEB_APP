@@ -24,6 +24,14 @@ export type CharactersResponse = {
   yearOfBirth: number
 }
 
+export type EditCharacterInput = {
+  name: string
+  image: string
+  house: string
+  gender: string
+  dateOfBirth: string
+}
+
 export const normalizeCharacters = (input: CharactersResponse) => ({
   actor: input?.actor || '',
   alive: input?.alive || '',

@@ -1,4 +1,4 @@
-import { Character } from '../../models/characters'
+import { Character, EditCharacterInput } from '../../models/characters'
 
 export const HP_ALL_CHARACTERS_KEY = 'hpAllCharacters'
 
@@ -12,4 +12,16 @@ export const setCachedHarryPotterCharacters = (allCharacters: Character[]) => {
     HP_ALL_CHARACTERS_KEY,
     JSON.stringify(allCharacters)
   )
+}
+
+export const editCachedCharacter = (id: string, values: EditCharacterInput) => {
+  const cachedCharacters = getCachedHarryPotterCharacters()
+  const currentCharacter = cachedCharacters.find(
+    (cachedCharacter) => cachedCharacter.id === id
+  )
+  const filteredCachedCharacter = cachedCharacters.filter(
+    (cachedCharacter) => cachedCharacter.id !== id
+  )
+  const editedCharacter = { ...currentCharacter, ...values } as Character
+  setCachedHarryPotterCharacters([...filteredCachedCharacter, editedCharacter])
 }
