@@ -10,3 +10,7 @@ export const getCachedHarryPotterSpells = (): Spell[] => {
 export const setCachedHarryPotterSpells = (spells: Spell[]) => {
   window.localStorage.setItem(HP_SPELLS_KEY, JSON.stringify(spells))
 }
+
+export const resetSpellsCache = () => {
+  window.localStorage.removeItem(HP_SPELLS_KEY)
+}

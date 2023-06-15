@@ -25,3 +25,7 @@ export const editCachedCharacter = (id: string, values: EditCharacterInput) => {
   const editedCharacter = { ...currentCharacter, ...values } as Character
   setCachedHarryPotterCharacters([...filteredCachedCharacter, editedCharacter])
 }
+
+export const resetCharactersCache = () => {
+  window.localStorage.removeItem(HP_ALL_CHARACTERS_KEY)
+}
