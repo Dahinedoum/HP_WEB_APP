@@ -5,6 +5,7 @@ import BackButton from '../../components/BackButton/backButton'
 import { Spell } from '../../models/spells'
 import { getHarryPotterSpells } from '../../services/harryPotter/spells'
 import SpellCard from '../../components/SpellCard/spellCard'
+import Footer from '../../components/Footer/footer'
 
 const Spells: FC = () => {
   const [spells, setSpells] = useState<Spell[]>([])
@@ -20,6 +21,10 @@ const Spells: FC = () => {
     fetchSpells()
   }, [fetchSpells])
 
+  if (isLoading) {
+    ;<div>AQUI VA LOADING</div>
+  }
+
   return (
     <Container>
       <Header />
@@ -31,6 +36,7 @@ const Spells: FC = () => {
           ))}
         </Cards>
       </Content>
+      <Footer />
     </Container>
   )
 }
