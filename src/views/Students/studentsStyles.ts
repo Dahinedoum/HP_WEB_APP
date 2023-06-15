@@ -8,16 +8,17 @@ export const StudentsContainer = styled.div`
 `
 
 export const StudentsContent = styled.div`
-  width: 80%;
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-top: 100px;
+  margin-left: 20px;
+  margin-right: 10px;
 `
 
 export const StudentsCards = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   gap: 20px;
 `
 

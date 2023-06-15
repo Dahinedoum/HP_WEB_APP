@@ -1,12 +1,7 @@
 import styled from 'styled-components'
 import { Link as DefaultLink } from 'react-router-dom'
 
-export const Container = styled.div`
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 100vh;
-  width: 100vw;
-`
+export const Container = styled.div``
 
 export const Form = styled.form`
   height: 500px;
