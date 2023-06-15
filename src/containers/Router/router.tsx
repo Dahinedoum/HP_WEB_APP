@@ -8,6 +8,7 @@ import Create from '../../views/Create/create'
 import AllCharacters from '../../views/AllCharacters/allCharacters'
 import Students from '../../views/Students/students'
 import Staff from '../../views/Staff/staff'
+import Spells from '../../views/Spells/spells'
 
 const Router: FC = () => {
   return (
@@ -21,6 +22,7 @@ const Router: FC = () => {
         <Route path="/characters" element={<AllCharacters />} />
         <Route path="/students" element={<Students />} />
         <Route path="/staff" element={<Staff />} />
+        <Route path="/spells" element={<Spells />} />
         <Route path="/*" element={<Navigate replace to="/login" />} />
       </Routes>
     </BrowserRouter>

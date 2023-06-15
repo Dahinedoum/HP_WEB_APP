@@ -27,6 +27,10 @@ const Landing: FC<Props> = ({}) => {
     navigate('/staff')
   }, [navigate])
 
+  const handleGoToSpells = useCallback(() => {
+    navigate('/spells')
+  }, [navigate])
+
   return (
     <LandingContainer>
       <Header />
@@ -56,7 +60,7 @@ const Landing: FC<Props> = ({}) => {
             <CategoryHeaderContainer>
               <Image src="/harry-potter-2348767_1920.jpg" alt="" />
             </CategoryHeaderContainer>
-            <Button>View Spells</Button>
+            <Button onClick={handleGoToSpells}>View Spells</Button>
           </CategoryContent>
         </CategoryContainer>
       </LandingContent>
