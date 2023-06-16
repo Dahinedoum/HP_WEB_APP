@@ -20,7 +20,7 @@ const Header: FC<Props> = ({}) => {
     resetSpellsCache()
     resetStaffCache()
     resetStudentsCache()
-    navigate('/')
+    navigate('./')
   }, [navigate])
 
   const handleGoToProfile = useCallback(() => {
