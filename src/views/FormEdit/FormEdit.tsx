@@ -12,7 +12,7 @@ import {
   Label,
 } from './formEditStyles'
 
-const FormDetails: FC<Props> = ({ id, initialValues, onEditComplete }) => {
+const FormEdit: FC<Props> = ({ id, initialValues, onEditComplete }) => {
   const { handleEdit } = useLogic(id, onEditComplete)
 
   return (
@@ -68,4 +68,4 @@ const FormDetails: FC<Props> = ({ id, initialValues, onEditComplete }) => {
   )
 }
 
-export default memo(FormDetails)
+export default memo(FormEdit)

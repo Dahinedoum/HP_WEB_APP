@@ -58,6 +58,11 @@ export const toggleFavorites = (character: Character) => {
   }
 }
 
+export const getCachedCharacterById = (id: string) => {
+  const characters = getCachedHarryPotterCharacters()
+  return characters.find((character) => character.id === id)
+}
+
 export const editCachedCharacter = (id: string, values: EditCharacterInput) => {
   const cachedCharacters = getCachedHarryPotterCharacters()
   const currentCharacter = cachedCharacters.find(
