@@ -68,7 +68,7 @@ export const CategoryContainer = styled.div`
   display: flex;
   flex-flow: row wrap;
   gap: 16px;
-  margin-top: 300px;
+  margin-top: 100px;
   justify-content: space-evenly;
 `
 
