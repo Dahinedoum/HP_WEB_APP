@@ -1,10 +1,19 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
+  background: url('/carta.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  height: max-content;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+
+  @media screen and (max-width: 768px) {
+    height: auto;
+  }
 `
 
 export const Content = styled.div`

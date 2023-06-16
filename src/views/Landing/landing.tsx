@@ -34,7 +34,7 @@ const Landing: FC<Props> = ({}) => {
 
   return (
     <LandingContainer>
-      <ImageBackground src="/diningRoom.png" alt="" />
+      {/* <ImageBackground src="/diningRoom.png" alt="" /> */}
       <Header />
       <LandingContent>
         <CategoryContainer>

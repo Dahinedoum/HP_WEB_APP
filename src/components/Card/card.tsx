@@ -32,7 +32,7 @@ const Card: FC<Props> = ({ character, onClick }) => {
       <Container>
         <Content>
           <Header>{character.name}</Header>
-          <Image src="/dobby.png" alt={character.name} />
+          <Image src="/harryicon.png" alt={character.name} />
           <Footer>
             <FooterContent>
               <ExtraInfo>{character.dateOfBirth}</ExtraInfo>

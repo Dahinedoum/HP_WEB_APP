@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.header`
-  background-color: white;
-  color: #fff;
+  background-color: black;
   height: 90px;
   position: fixed;
   width: 100%;
@@ -30,22 +29,19 @@ export const ButtonContainer = styled.div`
 `
 
 export const Button = styled.button`
-  background-color: transparent;
+  background-color: #d2b178;
   color: black;
   padding: 10px 20px;
   border: none;
   margin-right: 10px;
-
   cursor: pointer;
-  border: 2px solid white;
   font-size: 15px;
+  border-radius: 5px;
   transition: all 0.3s ease-in-out;
   min-width: 115px;
 
   &:hover {
-    background-color: goldenrod;
-    border-color: gold;
-    text-decoration: underline;
+    background-color: #965e25;
     text-shadow: 0px 0px 10px #ffffff;
   }
 
