@@ -8,7 +8,7 @@ export const Button = styled.button`
   font-size: 30px;
   color: white;
   border: white;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.5);
   transition: transform 300ms;
   cursor: pointer;
   position: sticky;
@@ -17,6 +17,7 @@ export const Button = styled.button`
 
   &:hover {
     transform: rotate(360deg);
+    background-color: rgba(0, 0, 0, 1);
   }
 
   @media screen and (max-width: 768px) {

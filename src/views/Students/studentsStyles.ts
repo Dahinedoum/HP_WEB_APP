@@ -31,41 +31,38 @@ export const StudentsCards = styled.div`
   gap: 20px;
 `
 
+export const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  position: sticky;
+  top: 100px;
+  z-index: 2;
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+  }
+`
+
 export const Button = styled.button`
-  position: fixed;
-  top: 110px;
-  left: 20px;
-  background-color: transparent;
-  color: white;
-  padding: 10px 20px;
-  border: none;
+  margin-right: 30px;
+  margin-top: 50px;
+  margin-bottom: 10px;
   border-radius: 50px;
+  font-size: 20px;
+  color: white;
+  border: white;
+  background-color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
-  border: 2px solid white;
-  font-size: 16px;
-  transition: all 0.3s ease-in-out;
-  min-width: 15px;
+  position: sticky;
+  top: 100px;
+  z-index: 2;
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-color: #3f51b5;
-    text-decoration: underline;
-    text-shadow: 0px 0px 10px #ffffff;
-  }
-
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 5px #3f51b5;
+    background-color: rgba(0, 0, 0, 1);
   }
 
   @media screen and (max-width: 768px) {
-    justify-content: center;
-    padding: 0 10px;
-    margin-right: 0;
-    min-width: 70px;
-    padding: 8px 16px;
-    font-size: 8px;
-    left: 6px;
-    top: 95px;
+    font-size: 25px;
   }
 `

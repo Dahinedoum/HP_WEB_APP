@@ -1,13 +1,21 @@
 import { FC, memo, useCallback, useEffect, useState } from 'react'
 import { getHarryPotterCharacters } from '../../services/harryPotter/allCharacters'
-import { Cards, Container, Content } from './allCharactersStyles'
+import {
+  Button,
+  ButtonContainer,
+  Cards,
+  Container,
+  Content,
+} from './allCharactersStyles'
 import Header from '../../components/Header/header'
 import Card from '../../components/Card/card'
 import { Character } from '../../models/characters'
 import BackButton from '../../components/BackButton/backButton'
 import Footer from '../../components/Footer/footer'
+import { useNavigate } from 'react-router-dom'
 
 const AllCharacters: FC = () => {
+  const navigate = useNavigate()
   const [characters, setCharacters] = useState<Character[]>([])
   const [isLoading, setIsLoading] = useState(true)
 
@@ -16,6 +24,10 @@ const AllCharacters: FC = () => {
     setCharacters(charactersList)
     setIsLoading(false)
   }, [])
+
+  const handleGoToCreate = useCallback(() => {
+    navigate('/create/character')
+  }, [navigate])
 
   useEffect(() => {
     fetchAllCharacters()
@@ -29,7 +41,10 @@ const AllCharacters: FC = () => {
     <Container>
       <Header />
       <Content>
-        <BackButton />
+        <ButtonContainer>
+          <BackButton />
+          <Button onClick={handleGoToCreate}>Add</Button>
+        </ButtonContainer>
         <Cards>
           {characters.map((character, index) => (
             <Card key={index} character={character} />
