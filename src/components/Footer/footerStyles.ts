@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const FooterContainer = styled.div`
+const FooterContainer = styled.footer`
   position: fixed;
   bottom: 0px;
   border: 3px solid black;

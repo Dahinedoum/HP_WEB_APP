@@ -5,12 +5,14 @@ const CHARACTERS_FAV = 'charactersFav'
 
 export const getCachedHarryPotterCharacters = (): Character[] => {
   const response = window.localStorage.getItem(HP_ALL_CHARACTERS_KEY)
-  return response ? JSON.parse(response) : []
+  const characters = response ? JSON.parse(response) : []
   const favCharacters = getFavoritesCharacters()
-  return favCharacters.map((character: Character) => {
-    const isFav = !!favCharacters.find((favCharacter) => favCharacter.id === favCharacter.id)
+  return characters.map((character: Character) => {
+    const isFav = !!favCharacters.find(
+      (favCharacter) => favCharacter.id === character.id
+    )
     return { ...character, isFav }
-})
+  })
 }
 
 export const setCachedHarryPotterCharacters = (allCharacters: Character[]) => {
@@ -20,8 +22,6 @@ export const setCachedHarryPotterCharacters = (allCharacters: Character[]) => {
   )
 }
 
-
-
 export const addNewCharacter = (data: CharacterInput) => {
   const characterList = getCachedHarryPotterCharacters()
   setCachedHarryPotterCharacters([...characterList, data as Character])
@@ -30,10 +30,9 @@ export const addNewCharacter = (data: CharacterInput) => {
 export type CharacterInput = {
   name: string
   dateOfBirth: string
-  gender: string 
+  gender: string
   house: string
 }
-
 
 export const getFavoritesCharacters = (): Character[] => {
   const response = window.localStorage.getItem(CHARACTERS_FAV)
@@ -46,17 +45,18 @@ export const setFavoritesCharacters = (favCharacters: Character[]) => {
 
 export const toggleFavorites = (character: Character) => {
   const currentFavs = getFavoritesCharacters()
-  const hasFav = currentFavs.find((favApod) => character.id === favApod.id)
+  const hasFav = currentFavs.find(
+    (favCharacter) => character.id === favCharacter.id
+  )
   if (hasFav) {
-    const newList = currentFavs.filter((favApod) => character.id !== favApod.id)
+    const newList = currentFavs.filter(
+      (favCharacter) => character.id !== favCharacter.id
+    )
     setFavoritesCharacters(newList)
   } else {
     setFavoritesCharacters([...currentFavs, character])
   }
 }
-
-
-
 
 export const editCachedCharacter = (id: string, values: EditCharacterInput) => {
   const cachedCharacters = getCachedHarryPotterCharacters()
@@ -74,4 +74,3 @@ export const resetCharactersCache = () => {
   window.localStorage.removeItem(HP_ALL_CHARACTERS_KEY)
   window.localStorage.removeItem(CHARACTERS_FAV)
 }
-
