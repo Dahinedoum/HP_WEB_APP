@@ -11,6 +11,9 @@ export const Button = styled.button`
   background-color: black;
   transition: transform 300ms;
   cursor: pointer;
+  position: sticky;
+  top: 100px;
+  z-index: 2;
 
   &:hover {
     transform: rotate(360deg);

@@ -1,10 +1,19 @@
 import styled from 'styled-components'
 
 export const LandingContainer = styled.div`
+  background: url('/anden.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+
+  @media screen and (max-width: 768px) {
+    height: auto;
+  }
 `
 
 export const LandingContent = styled.div`
@@ -62,11 +71,8 @@ export const CategoryContainer = styled.div`
   justify-content: space-evenly;
 `
 
-export const CategoryContent = styled.div`
-  border: 1px solid maroon;
-`
+export const CategoryContent = styled.div``
 export const CategoryHeaderContainer = styled.div``
-
 
 export const ImageBackground = styled.div`
   background-size: cover;

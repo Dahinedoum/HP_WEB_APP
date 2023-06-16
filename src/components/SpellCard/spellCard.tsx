@@ -15,7 +15,7 @@ const SpellCard: FC<Props> = ({ spell, onClick }) => {
     <Container>
       <Content>
         <Header>{spell.name}</Header>
-        <Image src="/dobby.png" />
+        <Image src="/spell.png" />
         <Footer>
           <FooterContent>
             <ExtraInfo>{spell.description}</ExtraInfo>

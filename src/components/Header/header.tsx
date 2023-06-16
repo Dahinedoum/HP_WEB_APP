@@ -9,6 +9,8 @@ import { resetCharactersCache } from '../../services/storage/characters'
 import { resetSpellsCache } from '../../services/storage/spells'
 import { resetStaffCache } from '../../services/storage/staff'
 import { resetStudentsCache } from '../../services/storage/students'
+import { removeToken } from '../../services/storage/token'
+import { resetUserInfo } from '../../services/storage/user'
 
 const Header: FC<Props> = ({}) => {
   const navigate = useNavigate()
@@ -31,6 +33,8 @@ const Header: FC<Props> = ({}) => {
 
   const handleLogout = useCallback(async () => {
     await logout()
+    removeToken()
+    resetUserInfo()
     navigate('/login')
   }, [navigate])
 

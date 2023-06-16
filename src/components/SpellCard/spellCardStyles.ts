@@ -29,5 +29,5 @@ export const ExtraInfo = styled.div`
 `
 export const Image = styled.img`
   width: 150px;
-  height: 200px;
+  height: 150px;
 `
