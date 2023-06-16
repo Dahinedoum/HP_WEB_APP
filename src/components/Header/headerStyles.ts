@@ -8,7 +8,7 @@ export const Container = styled.header`
   top: 0;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding: 0 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 3;
@@ -55,4 +55,9 @@ export const Button = styled.button`
     padding: 8px 16px;
     font-size: 14px;
   }
+`
+export const Image = styled.img`
+height:75px;
+width: 75px;
+margin-left: 40px ;
 `

@@ -1,7 +1,23 @@
 import styled from 'styled-components'
 import { Link as DefaultLink } from 'react-router-dom'
 
-export const Container = styled.div``
+export const Container = styled.div`
+background-image:url("/Background.jpg");
+background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
+  @media screen and (max-width: 768px) {
+    height: auto;
+
+  }
+`
 
 export const Form = styled.form`
   height: 500px;

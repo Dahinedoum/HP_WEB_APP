@@ -38,7 +38,7 @@ const Landing: FC<Props> = () => {
         <CategoryContainer>
           <CategoryContent>
             <CategoryHeaderContainer>
-              <Image src="/hogwarts-5078578_1920.jpg" alt="" />
+              <Image src="/AllCharacters.png" alt="" />
             </CategoryHeaderContainer>
             <Button onClick={handleGoToAllCharacters}>
               View All Characters
@@ -46,19 +46,19 @@ const Landing: FC<Props> = () => {
           </CategoryContent>
           <CategoryContent>
             <CategoryHeaderContainer>
-              <Image src="/travel-3238442_1920.jpg" alt="" />
+              <Image src="/Car.png" alt="" />
             </CategoryHeaderContainer>
             <Button onClick={handleGoToStudents}>View Students</Button>
           </CategoryContent>
           <CategoryContent>
             <CategoryHeaderContainer>
-              <Image src="/library-948965_1920.jpg" alt="" />
+              <Image src="/Staff.png" alt="" />
             </CategoryHeaderContainer>
             <Button onClick={handleGoToStaff}>View Staff</Button>
           </CategoryContent>
           <CategoryContent>
             <CategoryHeaderContainer>
-              <Image src="/harry-potter-2348767_1920.jpg" alt="" />
+              <Image src="/Spells.png" alt="" />
             </CategoryHeaderContainer>
             <Button onClick={handleGoToSpells}>View Spells</Button>
           </CategoryContent>

@@ -1,5 +1,5 @@
 import { FC, memo, useCallback } from 'react'
-import { Container, ButtonContainer, Button } from './headerStyles'
+import { Container, ButtonContainer, Button, Image } from './headerStyles'
 import { useNavigate } from 'react-router-dom'
 import type { Props } from './headerTypes'
 
@@ -36,6 +36,7 @@ const Header: FC<Props> = ({}) => {
 
   return (
     <Container>
+      <Image src="/logo.png" />
       <ButtonContainer>
         <Button onClick={handleReset}>Reset</Button>
         <Button onClick={handleGoToProfile}>Profile</Button>

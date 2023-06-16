@@ -29,7 +29,7 @@ const Router: FC = () => {
         <Route path="/students" element={<Students />} />
         <Route path="/staff" element={<Staff />} />
         <Route path="/spells" element={<Spells />} />
-        {/* <Route path="/*" element={<Navigate replace to="/login" />} /> */}
+        <Route path="/*" element={<Navigate replace to="/login" />} />
       </Routes>
     </BrowserRouter>
   )
