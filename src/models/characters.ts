@@ -51,6 +51,7 @@ export const normalizeCharacters = (input: CharactersResponse) => ({
   wand: input?.wand || '',
   wizard: input?.wizard || '',
   yearOfBirth: input?.yearOfBirth || '',
+  isFav: false,
 })
 
 export type Character = ReturnType<typeof normalizeCharacters>
