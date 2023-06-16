@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const LandingContainer = styled.div`
-  background: url('/anden.jpg');
+  background: url('/diningRoom.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -33,13 +33,13 @@ export const LandingCards = styled.div`
 export const Button = styled.button`
   top: 110px;
   padding: 10px 20px;
-  border-radius: 10px;
+  border-radius: 20px;
   cursor: pointer;
-  border: 2px solid white;
-  font-size: 16px;
+  border: 3px solid black;
+  font-size: 23px;
   min-width: 15px;
   width: 100%;
-  background-color: rgba(204, 86, 86, 0.5);
+  background-color: goldenrod;
   transition: all 0.3s ease-in-out;
 
   &:hover {
@@ -67,7 +67,7 @@ export const CategoryContainer = styled.div`
   display: flex;
   flex-flow: row wrap;
   gap: 16px;
-  margin-top: 100px;
+  margin-top: 300px;
   justify-content: space-evenly;
 `
 
