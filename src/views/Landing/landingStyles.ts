@@ -66,3 +66,11 @@ export const CategoryContent = styled.div`
   border: 1px solid maroon;
 `
 export const CategoryHeaderContainer = styled.div``
+
+
+export const ImageBackground = styled.div`
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+`
