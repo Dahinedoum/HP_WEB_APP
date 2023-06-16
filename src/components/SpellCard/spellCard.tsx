@@ -1,4 +1,4 @@
-import { FC, memo } from 'react'
+import { FC, memo, useCallback, useState } from 'react'
 import { Props } from './spellCardTypes'
 import {
   Container,
@@ -9,8 +9,18 @@ import {
   Header,
   Image,
 } from './spellCardStyles'
+import { toggleFavoritesSpells } from '../../services/storage/spells'
+import Button from '../Button/button'
 
-const SpellCard: FC<Props> = ({ spell, onClick }) => {
+const SpellCard: FC<Props> = ({ spell }) => {
+  const [isFav, setIsFav] = useState(spell.isFav)
+
+  const handleToggleFavorites = useCallback(() => {
+    if (spell) {
+      toggleFavoritesSpells(spell)
+      setIsFav(!isFav)
+    }
+  }, [isFav, spell])
   return (
     <Container>
       <Content>
@@ -19,6 +29,9 @@ const SpellCard: FC<Props> = ({ spell, onClick }) => {
         <Footer>
           <FooterContent>
             <ExtraInfo>{spell.description}</ExtraInfo>
+            <Button onClick={handleToggleFavorites}>
+              {isFav ? 'Remove Fav' : 'Add Fav'}
+            </Button>
           </FooterContent>
         </Footer>
       </Content>

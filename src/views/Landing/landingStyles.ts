@@ -10,9 +10,11 @@ export const LandingContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 2rem;
 
   @media screen and (max-width: 768px) {
     height: auto;
+    margin-bottom: 3rem;
   }
 `
 
@@ -52,10 +54,9 @@ export const Button = styled.button`
   }
 
   @media screen and (max-width: 768px) {
-    justify-content: center;
     padding: 0 10px;
-    margin-right: 0;
-    min-width: 70px;
+    margin-left: 50px;
+    width: 150px;
     padding: 8px 16px;
     font-size: 8px;
     left: 6px;
@@ -67,7 +68,7 @@ export const CategoryContainer = styled.div`
   display: flex;
   flex-flow: row wrap;
   gap: 16px;
-  margin-top: 300px;
+  margin-top: 100px;
   justify-content: space-evenly;
 `
 

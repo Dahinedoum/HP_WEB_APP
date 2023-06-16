@@ -5,4 +5,8 @@ export const Img = styled.img`
   height: 200px;
   border-radius: 100px;
   border: 2px solid black;
+
+  @media screen and (max-width: 768px) {
+    width: 250px;
+  }
 `
