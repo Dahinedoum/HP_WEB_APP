@@ -47,7 +47,7 @@ const Staff: FC = () => {
         </ButtonContainer>
         <Cards>
           {staffs.map((staff, index) => (
-            <Card key={index} character={staff} />
+            <Card key={index} character={staff} isStaff={true} />
           ))}
         </Cards>
       </Content>

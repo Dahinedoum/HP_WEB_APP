@@ -47,7 +47,7 @@ const AllCharacters: FC = () => {
         </ButtonContainer>
         <Cards>
           {characters.map((character, index) => (
-            <Card key={index} character={character} />
+            <Card key={index} character={character} isCharacter={true} />
           ))}
         </Cards>
       </Content>

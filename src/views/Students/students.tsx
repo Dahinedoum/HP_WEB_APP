@@ -46,7 +46,7 @@ const Students: FC = () => {
         </ButtonContainer>
         <StudentsCards>
           {students.map((student, index) => (
-            <Card key={index} character={student} />
+            <Card key={index} character={student} isStudent={true} />
           ))}
         </StudentsCards>
       </StudentsContent>
