@@ -12,6 +12,7 @@ import Footer from '../../components/Footer/footer'
 import Image from '../../components/Image/image'
 import { useNavigate } from 'react-router-dom'
 import type { Props } from './landingTypes'
+import ImageBackground from '../../components/ImageBackground/imageBackground'
 
 const Landing: FC<Props> = ({}) => {
   const navigate = useNavigate()
@@ -33,6 +34,7 @@ const Landing: FC<Props> = ({}) => {
 
   return (
     <LandingContainer>
+      <ImageBackground src="/diningRoom.png" alt="" />
       <Header />
       <LandingContent>
         <CategoryContainer>
