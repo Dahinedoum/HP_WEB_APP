@@ -27,10 +27,6 @@ const Header: FC<Props> = ({}) => {
     navigate('/profile')
   }, [navigate])
 
-  const handleGoToCreate = useCallback(() => {
-    navigate('/create')
-  }, [navigate])
-
   const handleLogout = useCallback(async () => {
     await logout()
     removeToken()
@@ -41,10 +37,9 @@ const Header: FC<Props> = ({}) => {
   return (
     <Container>
       <ButtonContainer>
-        <Button onClick={handleReset}>synchronize</Button>
+        <Button onClick={handleReset}>Reset</Button>
         <Button onClick={handleGoToProfile}>Profile</Button>
         <Button onClick={handleLogout}>Logout</Button>
-        <Button onClick={handleGoToCreate}>Create</Button>
       </ButtonContainer>
     </Container>
   )

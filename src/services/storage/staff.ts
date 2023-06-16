@@ -11,6 +11,18 @@ export const setCachedHarryPotterStaff = (staff: Character[]) => {
   window.localStorage.setItem(HP_STAFF_KEY, JSON.stringify(staff))
 }
 
+export const addNewStaff = (data: StaffInput) => {
+  const staffList = getCachedHarryPotterStaff()
+  setCachedHarryPotterStaff([...staffList, data as Character])
+}
+
+export type StaffInput = {
+  name: string
+  dateOfBirth: string
+  gender: string
+  house: string
+}
+
 export const resetStaffCache = () => {
   window.localStorage.removeItem(HP_STAFF_KEY)
 }

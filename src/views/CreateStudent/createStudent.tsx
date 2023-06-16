@@ -1,32 +1,36 @@
 import { FC, memo } from 'react'
-import { Button, Input, InputController, Label } from './createCardStyles'
+import {
+  Button,
+  Container,
+  Form,
+  FormContent,
+  Input,
+  InputController,
+  Label,
+  Title,
+} from './createStudentStyles'
 
 import { Formik } from 'formik'
 import BackButton from '../../components/BackButton/backButton'
 import { validationNewCardSchema, initialValues } from './constants'
 import Footer from '../../components/Footer/footer'
 
-import useLogic from '../../views/Create/logic'
-import Header from '../../components/Header/header'
+import useLogic from './logic'
 
-const NewCard: FC = () => {
-  const { addNewCharacter } = useLogic()
+const NewStudent: FC = () => {
+  const { handleAddNewStudent } = useLogic()
   return (
-    <>
-      {/* <VideoBackground src="" /> */}
-
-      <InputController>
-        <b>Create your own Character</b>
-      </InputController>
-
+    <Container>
+      <BackButton />
       <Formik
         initialValues={initialValues}
         validationSchema={validationNewCardSchema}
-        onSubmit={addNewCharacter}
+        onSubmit={handleAddNewStudent}
       >
         {({ handleSubmit, handleChange, values }) => (
-          <div className="cardContainer">
-            <form onSubmit={handleSubmit} className="cardContent">
+          <Form onSubmit={handleSubmit} className="cardContent">
+            <FormContent>
+              <Title>Create your own Student</Title>
               <InputController>
                 <Label>Name</Label>
                 <Input
@@ -67,16 +71,15 @@ const NewCard: FC = () => {
                 />
               </InputController>
               <InputController>
-                <Button type="submit">Add Character</Button>
+                <Button type="submit">Add Student</Button>
               </InputController>
-            </form>
-          </div>
+            </FormContent>
+          </Form>
         )}
       </Formik>
-      <BackButton />
       <Footer />
-    </>
+    </Container>
   )
 }
 
-export default memo(NewCard)
+export default memo(NewStudent)
