@@ -32,3 +32,4 @@ export const Image = styled.img`
   width: 150px;
   height: 150px;
 `
+export const ButtonContainer = styled.div``
