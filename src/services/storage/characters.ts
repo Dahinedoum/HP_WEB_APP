@@ -43,7 +43,7 @@ export const setFavoritesCharacters = (favCharacters: Character[]) => {
   window.localStorage.setItem(CHARACTERS_FAV, JSON.stringify(favCharacters))
 }
 
-export const toggleFavorites = (character: Character) => {
+export const toggleFavoritesCharacters = (character: Character) => {
   const currentFavs = getFavoritesCharacters()
   const hasFav = currentFavs.find(
     (favCharacter) => character.id === favCharacter.id

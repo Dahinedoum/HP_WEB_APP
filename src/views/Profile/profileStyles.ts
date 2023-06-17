@@ -1,5 +1,4 @@
-
-  import styled from 'styled-components'
+import styled from 'styled-components'
 
 export const ButtonContainer = styled.div`
   margin-top: 158px;
@@ -21,8 +20,8 @@ export const PerfilContainer = styled.div`
 `
 
 export const Avatar = styled.div`
-  width: 255px;
-  height: 255px;
+  width: 100px;
+  height: 100px;
   background-color: darr;
   background-image: url('/dobby.png');
   background-size: cover;
@@ -43,6 +42,6 @@ export const InfoItem = styled.p`
 
 export const AdditionalContainer = styled.div`
   display: flex;
-  flex-flow: column;
+  flex-flow: row;
   align-items: center;
 `

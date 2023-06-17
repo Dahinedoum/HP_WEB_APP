@@ -1,6 +1,7 @@
 import { FC, memo, useState, useCallback, useEffect } from 'react'
 import { Props } from './cardTypes'
 import {
+  ButtonContainer,
   Container,
   Content,
   ExtraInfo,
@@ -11,12 +12,14 @@ import {
 } from './cardStyles'
 import {
   getCachedCharacterById,
-  toggleFavorites,
+  toggleFavoritesCharacters,
 } from '../../services/storage/characters'
 import Button from '../Button/button'
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { Character, EditCharacterInput } from '../../models/characters'
 import FormEdit from '../../views/FormEdit/FormEdit'
+import { toggleFavoritesStaff } from '../../services/storage/staff'
+import { toggleFavoritesStudents } from '../../services/storage/students'
 
 const Card: FC<Props> = ({
   character,
@@ -45,9 +48,23 @@ const Card: FC<Props> = ({
     }
   }, [characterId])
 
-  const handleToggleFavorites = useCallback(() => {
+  const handleToggleFavoritesCharacters = useCallback(() => {
     if (character) {
-      toggleFavorites(character)
+      toggleFavoritesCharacters(character)
+      setIsFav(!isFav)
+    }
+  }, [isFav, character])
+
+  const handleToggleFavoritesStaff = useCallback(() => {
+    if (character) {
+      toggleFavoritesStaff(character)
+      setIsFav(!isFav)
+    }
+  }, [isFav, character])
+
+  const handleToggleFavoritesStudents = useCallback(() => {
+    if (character) {
+      toggleFavoritesStudents(character)
       setIsFav(!isFav)
     }
   }, [isFav, character])
@@ -102,17 +119,29 @@ const Card: FC<Props> = ({
               <ExtraInfo>{character.dateOfBirth}</ExtraInfo>
               <ExtraInfo>{character.gender}</ExtraInfo>
               <ExtraInfo>{character.house}</ExtraInfo>
-              <Button onClick={handleToggleFavorites}>
-                {isFav ? 'Remove Fav' : 'Add Fav'}
-              </Button>
               {isCharacter && (
-                <Button onClick={handleGoToEditCharacterForm}>Edit</Button>
+                <ButtonContainer>
+                  <Button onClick={handleToggleFavoritesCharacters}>
+                    {isFav ? 'Remove Fav' : 'Add Fav'}
+                  </Button>
+                  <Button onClick={handleGoToEditCharacterForm}>Edit</Button>
+                </ButtonContainer>
               )}
               {isStaff && (
-                <Button onClick={handleGoToEditStaffForm}>Edit</Button>
+                <ButtonContainer>
+                  <Button onClick={handleToggleFavoritesStaff}>
+                    {isFav ? 'Remove Fav' : 'Add Fav'}
+                  </Button>
+                  <Button onClick={handleGoToEditStaffForm}>Edit</Button>
+                </ButtonContainer>
               )}
               {isStudent && (
-                <Button onClick={handleGoToEditStudentForm}>Edit</Button>
+                <ButtonContainer>
+                  <Button onClick={handleToggleFavoritesStudents}>
+                    {isFav ? 'Remove Fav' : 'Add Fav'}
+                  </Button>
+                  <Button onClick={handleGoToEditStudentForm}>Edit</Button>
+                </ButtonContainer>
               )}
             </FooterContent>
           </Footer>
@@ -130,17 +159,30 @@ const Card: FC<Props> = ({
               <ExtraInfo>{character.dateOfBirth}</ExtraInfo>
               <ExtraInfo>{character.gender}</ExtraInfo>
               <ExtraInfo>{character.house}</ExtraInfo>
-              <Button onClick={handleToggleFavorites}>
-                {isFav ? 'Remove Fav' : 'Add Fav'}
-              </Button>
+
               {isCharacter && (
-                <Button onClick={handleGoToEditCharacterForm}>Edit</Button>
+                <ButtonContainer>
+                  <Button onClick={handleToggleFavoritesCharacters}>
+                    {isFav ? 'Remove Fav' : 'Add Fav'}
+                  </Button>
+                  <Button onClick={handleGoToEditCharacterForm}>Edit</Button>
+                </ButtonContainer>
               )}
               {isStaff && (
-                <Button onClick={handleGoToEditStaffForm}>Edit</Button>
+                <ButtonContainer>
+                  <Button onClick={handleToggleFavoritesStaff}>
+                    {isFav ? 'Remove Fav' : 'Add Fav'}
+                  </Button>
+                  <Button onClick={handleGoToEditStaffForm}>Edit</Button>
+                </ButtonContainer>
               )}
               {isStudent && (
-                <Button onClick={handleGoToEditStudentForm}>Edit</Button>
+                <ButtonContainer>
+                  <Button onClick={handleToggleFavoritesStudents}>
+                    {isFav ? 'Remove Fav' : 'Add Fav'}
+                  </Button>
+                  <Button onClick={handleGoToEditStudentForm}>Edit</Button>
+                </ButtonContainer>
               )}
             </FooterContent>
           </Footer>

@@ -49,4 +49,5 @@ export const toggleFavoritesSpells = (spell: Spell) => {
 
 export const resetSpellsCache = () => {
   window.localStorage.removeItem(HP_SPELLS_KEY)
+  window.localStorage.removeItem(SPELLS_FAV)
 }
