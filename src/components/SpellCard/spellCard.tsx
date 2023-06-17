@@ -12,7 +12,7 @@ import {
 import { toggleFavoritesSpells } from '../../services/storage/spells'
 import Button from '../Button/button'
 
-const SpellCard: FC<Props> = ({ spell }) => {
+const SpellCard: FC<Props> = ({ spell, isProfile = false }) => {
   const [isFav, setIsFav] = useState(spell.isFav)
 
   const handleToggleFavorites = useCallback(() => {
@@ -27,12 +27,20 @@ const SpellCard: FC<Props> = ({ spell }) => {
         <Header>{spell.name}</Header>
         <Image src="/spell.png" />
         <Footer>
-          <FooterContent>
-            <ExtraInfo>{spell.description}</ExtraInfo>
-            <Button onClick={handleToggleFavorites}>
-              {isFav ? 'Remove Fav' : 'Add Fav'}
-            </Button>
-          </FooterContent>
+          {!isProfile && (
+            <FooterContent>
+              <ExtraInfo>{spell.description}</ExtraInfo>
+              <Button onClick={handleToggleFavorites}>
+                {isFav ? 'Remove Fav' : 'Add Fav'}
+              </Button>
+            </FooterContent>
+          )}
+
+          {isProfile && (
+            <FooterContent>
+              <ExtraInfo>{spell.description}</ExtraInfo>
+            </FooterContent>
+          )}
         </Footer>
       </Content>
     </Container>

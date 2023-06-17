@@ -1,32 +1,29 @@
 import styled from 'styled-components'
 
 export const ButtonContainer = styled.div`
-  margin-top: 158px;
+  margin-top: 90px;
   margin-left: 50px;
 `
 
 export const PerfilContainer = styled.div`
-  color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 300px;
   height: 300px;
-  padding: 20px;
-  border-radius: 28px;
-  background-color: rgba(245, 245, 245, 0.2);
-  margin: 10px auto;
+  background-color: rgba(255, 254, 244, 0.8);
+  border: 1px solid rgba(128, 0, 0, 0.3);
+  margin: 0 auto;
 `
 
 export const Avatar = styled.div`
-  width: 100px;
-  height: 100px;
-  background-color: darr;
-  background-image: url('/dobby.png');
+  width: 140px;
+  height: 140px;
+  background-image: url('/harryicon.png');
   background-size: cover;
   background-repeat: no-repeat;
-  margin-bottom: 20px;
+  margin-right: 15px;
 `
 
 export const InfoContainer = styled.div`
@@ -38,10 +35,17 @@ export const InfoContainer = styled.div`
 
 export const InfoItem = styled.p`
   margin-bottom: 10px;
+  font-weight: bold;
+`
+export const Title = styled.h2`
+  margin-left: 20px;
 `
 
 export const AdditionalContainer = styled.div`
   display: flex;
-  flex-flow: row;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  gap: 10px;
   align-items: center;
+  margin-bottom: 100px;
 `
