@@ -14,6 +14,10 @@ import { getHarryPotterStudents } from '../../services/harryPotter/students'
 import BackButton from '../../components/BackButton/backButton'
 import Footer from '../../components/Footer/footer'
 import { useNavigate } from 'react-router-dom'
+import {
+  getCachedHarryPotterCharacters,
+  setCachedHarryPotterCharacters,
+} from '../../services/storage/characters'
 
 const Students: FC = () => {
   const navigate = useNavigate()
@@ -37,11 +41,21 @@ const Students: FC = () => {
   if (isLoading) {
     ;<div>AQUI VA LOADING</div>
   }
+  const handleRemoveCharacter = useCallback((characterId: string) => {
+    const currentCharacters = getCachedHarryPotterCharacters()
+    const filteredCharacters = currentCharacters.filter(
+      (CachedHarryPotterCharacter) =>
+        characterId !== CachedHarryPotterCharacter.id
+    )
+    setCachedHarryPotterCharacters(filteredCharacters)
+    setStudents(filteredCharacters)
+  }, [])
+
   return (
     <StudentsContainer>
       <Header />
       <StudentsContent>
-      <StyledTitle className="title">Students</StyledTitle>
+        <StyledTitle className="title">Students</StyledTitle>
 
         <ButtonContainer>
           <BackButton />
@@ -49,7 +63,12 @@ const Students: FC = () => {
         </ButtonContainer>
         <StudentsCards>
           {students.map((student, index) => (
-            <Card key={index} character={student} isStudent={true} />
+            <Card
+              key={index}
+              character={student}
+              isStudent={true}
+              onRemove={handleRemoveCharacter}
+            />
           ))}
         </StudentsCards>
       </StudentsContent>

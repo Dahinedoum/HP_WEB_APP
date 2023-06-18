@@ -79,3 +79,4 @@ export const resetCharactersCache = () => {
   window.localStorage.removeItem(HP_ALL_CHARACTERS_KEY)
   window.localStorage.removeItem(CHARACTERS_FAV)
 }
+

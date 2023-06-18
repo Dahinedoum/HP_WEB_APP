@@ -14,6 +14,10 @@ import { Character } from '../../models/characters'
 import BackButton from '../../components/BackButton/backButton'
 import Footer from '../../components/Footer/footer'
 import { useNavigate } from 'react-router-dom'
+import {
+  getCachedHarryPotterCharacters,
+  setCachedHarryPotterCharacters,
+} from '../../services/storage/characters'
 
 const AllCharacters: FC = () => {
   const navigate = useNavigate()
@@ -34,6 +38,16 @@ const AllCharacters: FC = () => {
     fetchAllCharacters()
   }, [fetchAllCharacters])
 
+  const handleRemoveCharacter = useCallback((characterId: string) => {
+    const currentCharacters = getCachedHarryPotterCharacters()
+    const filteredCharacters = currentCharacters.filter(
+      (CachedHarryPotterCharacter) =>
+        characterId !== CachedHarryPotterCharacter.id
+    )
+    setCachedHarryPotterCharacters(filteredCharacters)
+    setCharacters(filteredCharacters)
+  }, [])
+
   if (isLoading) {
     ;<div>AQUI VA LOADING</div>
   }
@@ -49,7 +63,12 @@ const AllCharacters: FC = () => {
         </ButtonContainer>
         <Cards>
           {characters.map((character, index) => (
-            <Card key={index} character={character} isCharacter={true} />
+            <Card
+              key={index}
+              character={character}
+              isCharacter={true}
+              onRemove={handleRemoveCharacter}
+            />
           ))}
         </Cards>
       </Content>
