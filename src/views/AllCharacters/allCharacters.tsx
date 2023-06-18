@@ -6,6 +6,7 @@ import {
   Cards,
   Container,
   Content,
+  StyledTitle,
 } from './allCharactersStyles'
 import Header from '../../components/Header/header'
 import Card from '../../components/Card/card'
@@ -41,6 +42,7 @@ const AllCharacters: FC = () => {
     <Container>
       <Header />
       <Content>
+        <StyledTitle className="title">All Characters</StyledTitle>
         <ButtonContainer>
           <BackButton />
           <Button onClick={handleGoToCreate}>Add</Button>

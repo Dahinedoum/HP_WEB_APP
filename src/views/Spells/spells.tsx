@@ -5,6 +5,7 @@ import {
   Cards,
   Container,
   Content,
+  StyledTitle,
 } from './spellsStyles'
 import Header from '../../components/Header/header'
 import BackButton from '../../components/BackButton/backButton'
@@ -41,6 +42,7 @@ const Spells: FC = () => {
     <Container>
       <Header />
       <Content>
+        <StyledTitle className="title">Spells</StyledTitle>
         <ButtonContainer>
           <BackButton />
           <Button onClick={handleGoToCreate}>Add</Button>

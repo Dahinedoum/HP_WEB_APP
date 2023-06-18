@@ -8,6 +8,7 @@ import {
   StudentsCards,
   StudentsContainer,
   StudentsContent,
+  StyledTitle,
 } from './studentsStyles'
 import { getHarryPotterStudents } from '../../services/harryPotter/students'
 import BackButton from '../../components/BackButton/backButton'
@@ -40,6 +41,8 @@ const Students: FC = () => {
     <StudentsContainer>
       <Header />
       <StudentsContent>
+      <StyledTitle className="title">Students</StyledTitle>
+
         <ButtonContainer>
           <BackButton />
           <Button onClick={handleGoToCreate}>Add</Button>

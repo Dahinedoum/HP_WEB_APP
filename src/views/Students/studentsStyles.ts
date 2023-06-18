@@ -15,7 +15,14 @@ export const StudentsContainer = styled.div`
     height: auto;
   }
 `
-
+export const StyledTitle = styled.h1`
+  font-size: 50px;
+  color: blanchedalmond;
+  text-align: center;
+  margin: 20px;
+  font-family: "Old English Text MT", cursive;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+`;
 export const StudentsContent = styled.div`
   margin-top: 100px;
   margin-left: 20px;
