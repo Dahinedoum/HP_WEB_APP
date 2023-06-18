@@ -15,6 +15,7 @@ import BackButton from '../../components/BackButton/backButton'
 import Footer from '../../components/Footer/footer'
 import { useNavigate } from 'react-router-dom'
 import type { Props } from './studentsTypes'
+import Loading from '../../components/Loading/loading'
 
 const Students: FC<Props> = ({ onLogout }) => {
   const navigate = useNavigate()
@@ -36,8 +37,9 @@ const Students: FC<Props> = ({ onLogout }) => {
   }, [fetchStudents])
 
   if (isLoading) {
-    ;<div>AQUI VA LOADING</div>
+    return <Loading />
   }
+
   return (
     <StudentsContainer>
       <Header onLogout={onLogout} />
