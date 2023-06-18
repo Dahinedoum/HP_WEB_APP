@@ -5,6 +5,7 @@ import {
   Cards,
   Container,
   Content,
+  StyledTitle,
 } from './staffStyles'
 import Header from '../../components/Header/header'
 import BackButton from '../../components/BackButton/backButton'
@@ -21,7 +22,6 @@ import {
 
 import type { Props } from './staffTypes'
 import Loading from '../../components/Loading/loading'
-
 
 const Staff: FC<Props> = ({ onLogout }) => {
   const navigate = useNavigate()
@@ -60,9 +60,7 @@ const Staff: FC<Props> = ({ onLogout }) => {
     <Container>
       <Header onLogout={onLogout} />
       <Content>
-
         <StyledTitle className="title">Staff</StyledTitle>
-
 
         <ButtonContainer>
           <BackButton />
