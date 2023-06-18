@@ -12,8 +12,6 @@ import {
 } from './cardStyles'
 import {
   getCachedCharacterById,
-  getCachedHarryPotterCharacters,
-  setCachedHarryPotterCharacters,
   toggleFavoritesCharacters,
 } from '../../services/storage/characters'
 import Button from '../Button/button'

@@ -12,8 +12,6 @@ import Footer from '../../components/Footer/footer'
 import Image from '../../components/Image/image'
 import { useNavigate } from 'react-router-dom'
 import type { Props } from './landingTypes'
-import { setCachedHarryPotterCharacters } from '../../services/storage/characters'
-import { getHarryPotterCharacters } from '../../services/harryPotter/allCharacters'
 
 const Landing: FC<Props> = () => {
   const navigate = useNavigate()

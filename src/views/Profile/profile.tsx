@@ -27,7 +27,7 @@ import {
 import Card from '../../components/Card/card'
 import SpellCard from '../../components/SpellCard/spellCard'
 
-const Perfil: FC = ({}) => {
+const Perfil: FC = () => {
   const user = getUserInfo()
   const currentFavsCharacters = getFavoritesCharacters()
   const currentFavsStudents = getFavoritesStudents()
