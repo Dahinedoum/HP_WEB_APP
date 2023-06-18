@@ -33,6 +33,15 @@ const Staff: FC<Props> = ({ onLogout }) => {
     setStaffs(staffList)
     setIsLoading(false)
   }, [])
+  const handleRemoveCharacter = useCallback((characterId: string) => {
+    const currentCharacters = getCachedHarryPotterCharacters()
+    const filteredCharacters = currentCharacters.filter(
+      (CachedHarryPotterCharacter) =>
+        characterId !== CachedHarryPotterCharacter.id
+    )
+    setCachedHarryPotterCharacters(filteredCharacters)
+    setStaffs(filteredCharacters)
+  }, [])
 
   const handleGoToCreate = useCallback(() => {
     navigate('/create/staff')
@@ -46,15 +55,6 @@ const Staff: FC<Props> = ({ onLogout }) => {
     return <Loading />
   }
 
-  const handleRemoveCharacter = useCallback((characterId: string) => {
-    const currentCharacters = getCachedHarryPotterCharacters()
-    const filteredCharacters = currentCharacters.filter(
-      (CachedHarryPotterCharacter) =>
-        characterId !== CachedHarryPotterCharacter.id
-    )
-    setCachedHarryPotterCharacters(filteredCharacters)
-    setStaffs(filteredCharacters)
-  }, [])
 
   return (
     <Container>

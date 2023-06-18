@@ -23,7 +23,6 @@ import {
 import type { Props } from './studentsTypes'
 import Loading from '../../components/Loading/loading'
 
-
 const Students: FC<Props> = ({ onLogout }) => {
   const navigate = useNavigate()
   const [students, setStudents] = useState<Character[]>([])
@@ -33,6 +32,16 @@ const Students: FC<Props> = ({ onLogout }) => {
     const studentsList = await getHarryPotterStudents()
     setStudents(studentsList)
     setIsLoading(false)
+  }, [])
+
+  const handleRemoveCharacter = useCallback((characterId: string) => {
+    const currentCharacters = getCachedHarryPotterCharacters()
+    const filteredCharacters = currentCharacters.filter(
+      (CachedHarryPotterCharacter) =>
+        characterId !== CachedHarryPotterCharacter.id
+    )
+    setCachedHarryPotterCharacters(filteredCharacters)
+    setStudents(filteredCharacters)
   }, [])
 
   const handleGoToCreate = useCallback(() => {
@@ -46,17 +55,6 @@ const Students: FC<Props> = ({ onLogout }) => {
   if (isLoading) {
     return <Loading />
   }
-
-  const handleRemoveCharacter = useCallback((characterId: string) => {
-    const currentCharacters = getCachedHarryPotterCharacters()
-    const filteredCharacters = currentCharacters.filter(
-      (CachedHarryPotterCharacter) =>
-        characterId !== CachedHarryPotterCharacter.id
-    )
-    setCachedHarryPotterCharacters(filteredCharacters)
-    setStudents(filteredCharacters)
-  }, [])
-
 
   return (
     <StudentsContainer>
