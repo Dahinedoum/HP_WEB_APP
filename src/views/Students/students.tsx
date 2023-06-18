@@ -14,8 +14,9 @@ import { getHarryPotterStudents } from '../../services/harryPotter/students'
 import BackButton from '../../components/BackButton/backButton'
 import Footer from '../../components/Footer/footer'
 import { useNavigate } from 'react-router-dom'
+import type { Props } from './studentsTypes'
 
-const Students: FC = () => {
+const Students: FC<Props> = ({ onLogout }) => {
   const navigate = useNavigate()
   const [students, setStudents] = useState<Character[]>([])
   const [isLoading, setIsLoading] = useState(true)
@@ -39,9 +40,9 @@ const Students: FC = () => {
   }
   return (
     <StudentsContainer>
-      <Header />
+      <Header onLogout={onLogout} />
       <StudentsContent>
-      <StyledTitle className="title">Students</StyledTitle>
+        <StyledTitle className="title">Students</StyledTitle>
 
         <ButtonContainer>
           <BackButton />

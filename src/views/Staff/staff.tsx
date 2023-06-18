@@ -14,8 +14,9 @@ import { Character } from '../../models/characters'
 import { getHarryPotterStaff } from '../../services/harryPotter/staff'
 import Footer from '../../components/Footer/footer'
 import { useNavigate } from 'react-router-dom'
+import type { Props } from './staffTypes'
 
-const Staff: FC = () => {
+const Staff: FC<Props> = ({ onLogout }) => {
   const navigate = useNavigate()
   const [staffs, setStaffs] = useState<Character[]>([])
   const [isLoading, setIsLoading] = useState(true)
@@ -40,9 +41,9 @@ const Staff: FC = () => {
 
   return (
     <Container>
-      <Header />
+      <Header onLogout={onLogout} />
       <Content>
-      <StyledTitle className="title">Staff</StyledTitle>
+        <StyledTitle className="title">Staff</StyledTitle>
 
         <ButtonContainer>
           <BackButton />

@@ -15,12 +15,12 @@ import {
 } from './signupStyles'
 import { InitialValues, ValidationSchema } from './constants'
 import useLogic from './logic'
+import type { Props } from './signupTypes'
 
-const Signup: FC = () => {
-  const { handleOnSubmit } = useLogic()
+const Signup: FC<Props> = ({ onSignup }) => {
+  const { handleOnSubmit } = useLogic(onSignup)
   return (
     <Container>
-     
       <Formik
         initialValues={InitialValues}
         validationSchema={ValidationSchema}

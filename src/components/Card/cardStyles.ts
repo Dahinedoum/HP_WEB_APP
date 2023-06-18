@@ -1,37 +1,37 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-background: linear-gradient(315deg, #d9ba9b 0%, #f2a65a 74%);
-	flex: 0 0 300px;
-	padding: 5px;
-	margin: 2em;
-	border-radius: 20px;
-	box-shadow: 0 0 0 14px #333;
-	text-align: center;
-	position: relative;
-	&:before {
-		content: 'wizard identification';
-		font-family: 'Cinzel';
-		font-weight: 700;
-		text-transform: uppercase;
-		font-size: 16px;
-		letter-spacing: .5px;
-		border-radius: 20px;
-		background: linear-gradient(to top, #9d523c 0%, #f2a65a 74%);
-		position: absolute;
-		z-index: 10;
-		max-width: 225px;
-		top: -8px;
-		padding: 5px;
-		left: 0;
-		right: 0;
-		margin: auto;
-	}
-	&__inner {
-		border-radius: 17px;
-		overflow: hidden;
-		background: #333;
-	}
+  background: linear-gradient(315deg, #d9ba9b 0%, #f2a65a 74%);
+  flex: 0 0 300px;
+  padding: 5px;
+  margin: 2em;
+  border-radius: 20px;
+  box-shadow: 0 0 0 14px #333;
+  text-align: center;
+  position: relative;
+  &:before {
+    content: 'wizard identification';
+    font-family: 'Cinzel';
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    border-radius: 20px;
+    background: linear-gradient(to top, #9d523c 0%, #f2a65a 74%);
+    position: absolute;
+    z-index: 1;
+    max-width: 225px;
+    top: -8px;
+    padding: 5px;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+  &__inner {
+    border-radius: 17px;
+    overflow: hidden;
+    background: #333;
+  }
 `
 export const Content = styled.div`
   padding: 16px;

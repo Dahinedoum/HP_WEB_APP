@@ -71,15 +71,15 @@ const Card: FC<Props> = ({
 
   const handleGoToEditCharacterForm = useCallback(() => {
     navigate(`/characters/${characterId}?edit=true`)
-  }, [navigate])
+  }, [navigate, characterId])
 
   const handleGoToEditStudentForm = useCallback(() => {
     navigate(`/students/${studentId}?edit=true`)
-  }, [navigate])
+  }, [navigate, studentId])
 
   const handleGoToEditStaffForm = useCallback(() => {
     navigate(`/staff/${staffId}?edit=true`)
-  }, [navigate])
+  }, [navigate, staffId])
 
   // const handleOnCompleteEdition = useCallback(
   //   (values: EditCharacterInput) => {

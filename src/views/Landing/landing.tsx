@@ -13,7 +13,7 @@ import Image from '../../components/Image/image'
 import { useNavigate } from 'react-router-dom'
 import type { Props } from './landingTypes'
 
-const Landing: FC<Props> = () => {
+const Landing: FC<Props> = ({ onLogout }) => {
   const navigate = useNavigate()
   const handleGoToAllCharacters = useCallback(() => {
     navigate('/characters')
@@ -33,7 +33,7 @@ const Landing: FC<Props> = () => {
 
   return (
     <LandingContainer>
-      <Header />
+      <Header onLogout={onLogout} />
       <LandingContent>
         <CategoryContainer>
           <CategoryContent>
