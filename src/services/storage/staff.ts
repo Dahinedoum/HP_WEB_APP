@@ -1,7 +1,8 @@
 import { Character } from '../../models/characters'
+import { getUserInfo } from './user'
 
-export const HP_STAFF_KEY = 'hpStaff'
-export const STAFF_FAV = 'staffFav'
+const HP_STAFF_KEY = 'hpStaff'
+const STAFF_FAV = 'staffFav'
 
 export const getCachedHarryPotterStaff = (): Character[] => {
   const response = window.localStorage.getItem(HP_STAFF_KEY)
@@ -25,12 +26,16 @@ export type StaffInput = {
 }
 
 export const getFavoritesStaff = (): Character[] => {
-  const response = window.localStorage.getItem(STAFF_FAV)
+  const userEmail = getUserInfo()
+  const favUserKey = `${STAFF_FAV}-${userEmail.email}`
+  const response = window.localStorage.getItem(favUserKey)
   return response ? JSON.parse(response) : []
 }
 
 export const setFavoritesStaff = (favStaff: Character[]) => {
-  window.localStorage.setItem(STAFF_FAV, JSON.stringify(favStaff))
+  const userEmail = getUserInfo()
+  const favUserKey = `${STAFF_FAV}-${userEmail.email}`
+  window.localStorage.setItem(favUserKey, JSON.stringify(favStaff))
 }
 
 export const toggleFavoritesStaff = (staff: Character) => {

@@ -15,12 +15,12 @@ import {
 } from './signupStyles'
 import { InitialValues, ValidationSchema } from './constants'
 import useLogic from './logic'
+import type { Props } from './signupTypes'
 
-const Signup: FC = () => {
-  const { handleOnSubmit } = useLogic()
+const Signup: FC<Props> = ({ onSignup }) => {
+  const { handleOnSubmit } = useLogic(onSignup)
   return (
     <Container>
-     
       <Formik
         initialValues={InitialValues}
         validationSchema={ValidationSchema}
@@ -34,11 +34,13 @@ const Signup: FC = () => {
                 <Label>Name</Label>
                 <Input
                   type="text"
-                  name="name"
+                  name="displayName"
                   onChange={handleChange}
-                  value={values.name}
+                  value={values.displayName}
                 />
-                {errors?.name && <InputError>{errors.name}</InputError>}
+                {errors?.displayName && (
+                  <InputError>{errors.displayName}</InputError>
+                )}
               </InputController>
               <InputController>
                 <Label>Email</Label>

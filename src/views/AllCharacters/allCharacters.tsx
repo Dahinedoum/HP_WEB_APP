@@ -14,12 +14,17 @@ import { Character } from '../../models/characters'
 import BackButton from '../../components/BackButton/backButton'
 import Footer from '../../components/Footer/footer'
 import { useNavigate } from 'react-router-dom'
+
 import {
   getCachedHarryPotterCharacters,
   setCachedHarryPotterCharacters,
 } from '../../services/storage/characters'
 
-const AllCharacters: FC = () => {
+import type { Props } from './allCharactersTypes'
+import Loading from '../../components/Loading/loading'
+
+
+const AllCharacters: FC<Props> = ({ onLogout }) => {
   const navigate = useNavigate()
   const [characters, setCharacters] = useState<Character[]>([])
   const [isLoading, setIsLoading] = useState(true)
@@ -49,12 +54,12 @@ const AllCharacters: FC = () => {
   }, [])
 
   if (isLoading) {
-    ;<div>AQUI VA LOADING</div>
+    return <Loading />
   }
 
   return (
     <Container>
-      <Header />
+      <Header onLogout={onLogout} />
       <Content>
         <StyledTitle className="title">All Characters</StyledTitle>
         <ButtonContainer>

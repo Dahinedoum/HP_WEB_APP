@@ -14,12 +14,17 @@ import { getHarryPotterStudents } from '../../services/harryPotter/students'
 import BackButton from '../../components/BackButton/backButton'
 import Footer from '../../components/Footer/footer'
 import { useNavigate } from 'react-router-dom'
+
 import {
   getCachedHarryPotterCharacters,
   setCachedHarryPotterCharacters,
 } from '../../services/storage/characters'
 
-const Students: FC = () => {
+import type { Props } from './studentsTypes'
+import Loading from '../../components/Loading/loading'
+
+
+const Students: FC<Props> = ({ onLogout }) => {
   const navigate = useNavigate()
   const [students, setStudents] = useState<Character[]>([])
   const [isLoading, setIsLoading] = useState(true)
@@ -39,8 +44,9 @@ const Students: FC = () => {
   }, [fetchStudents])
 
   if (isLoading) {
-    ;<div>AQUI VA LOADING</div>
+    return <Loading />
   }
+
   const handleRemoveCharacter = useCallback((characterId: string) => {
     const currentCharacters = getCachedHarryPotterCharacters()
     const filteredCharacters = currentCharacters.filter(
@@ -51,9 +57,10 @@ const Students: FC = () => {
     setStudents(filteredCharacters)
   }, [])
 
+
   return (
     <StudentsContainer>
-      <Header />
+      <Header onLogout={onLogout} />
       <StudentsContent>
         <StyledTitle className="title">Students</StyledTitle>
 

@@ -1,12 +1,12 @@
-import { number, object, string } from 'yup'
+import { object, string } from 'yup'
 export const InitialValues = {
-  name: '',
+  displayName: '',
   email: '',
   password: '',
 }
 
 export const ValidationSchema = object({
-  name: string().required('name is a required field'),
+  displayName: string().required('name is a required field'),
   email: string()
     .email('not a valid email')
     .required('email is a required field'),

@@ -26,8 +26,11 @@ import {
 } from '../../services/storage/spells'
 import Card from '../../components/Card/card'
 import SpellCard from '../../components/SpellCard/spellCard'
+import { Props } from './profileTypes'
 
-const Perfil: FC = () => {
+
+const Perfil: FC<Props> = ({ onLogout }) => {
+
   const user = getUserInfo()
   const currentFavsCharacters = getFavoritesCharacters()
   const currentFavsStudents = getFavoritesStudents()
@@ -54,15 +57,15 @@ const Perfil: FC = () => {
   }, [])
   return (
     <>
-      <Header />
+      <Header onLogout={onLogout} />
       <ButtonContainer>
         <BackButton />
       </ButtonContainer>
-      <Title>Welcome {user[0].email}!</Title>
+      <Title>Welcome {user.email}!</Title>
       <PerfilContainer>
         <Avatar />
         <InfoContainer>
-          <InfoItem>Email: {user[0].email}</InfoItem>
+          <InfoItem>Email: {user.email}</InfoItem>
         </InfoContainer>
       </PerfilContainer>
       <Title>My favorites characters</Title>

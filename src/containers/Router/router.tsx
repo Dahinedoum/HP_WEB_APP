@@ -1,35 +1,53 @@
-import { FC } from 'react'
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
-import Login from '../../views/Auth/Login/login'
-import Signup from '../../views/Auth/Signup/signup'
-import Landing from '../../views/Landing/landing'
-import Profile from '../../views/Profile/profile'
-import NewCharacter from '../../views/CreateCharacter/createCharacter'
-import NewStudent from '../../views/CreateStudent/createStudent'
-import NewSpell from '../../views/CreateSpell/createSpell'
-import NewStaff from '../../views/CreateStaff/createStaff'
-import AllCharacters from '../../views/AllCharacters/allCharacters'
-import Students from '../../views/Students/students'
-import Staff from '../../views/Staff/staff'
-import Spells from '../../views/Spells/spells'
+import { FC, useCallback, useEffect, useState } from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { getToken } from '../../services/storage/token'
+import { PrivateRoutes } from './PrivateRoutes/PrivateRoutes'
+import { PublicRoutes } from './PublicRoutes/PublicRoutes'
+import Loading from '../../components/Loading/loading'
 
 const Router: FC = () => {
+  const token = getToken()
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+
+  useEffect(() => {
+    setIsAuthenticated(!!token)
+  }, [token])
+
+  const recreateLogin = useCallback(() => {
+    setIsLoading(true)
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 1000)
+  }, [])
+
+  const recreateLogOut = useCallback(() => {
+    setIsLoading(true)
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 1000)
+  }, [])
+
+  if (isLoading) {
+    return <Loading />
+  }
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/landing" element={<Landing />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/create/character" element={<NewCharacter />} />
-        <Route path="/create/student" element={<NewStudent />} />
-        <Route path="/create/spell" element={<NewSpell />} />
-        <Route path="/create/staff" element={<NewStaff />} />
-        <Route path="/characters" element={<AllCharacters />} />
-        <Route path="/students" element={<Students />} />
-        <Route path="/staff" element={<Staff />} />
-        <Route path="/spells" element={<Spells />} />
-        <Route path="/*" element={<Navigate replace to="/login" />} />
+        {isAuthenticated ? (
+          <Route
+            path="/*"
+            element={<PrivateRoutes onLogout={recreateLogOut} />}
+          />
+        ) : (
+          <Route
+            path="/*"
+            element={
+              <PublicRoutes onLogin={recreateLogin} onSignup={recreateLogin} />
+            }
+          />
+        )}
       </Routes>
     </BrowserRouter>
   )

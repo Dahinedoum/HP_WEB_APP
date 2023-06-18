@@ -13,12 +13,17 @@ import { Character } from '../../models/characters'
 import { getHarryPotterStaff } from '../../services/harryPotter/staff'
 import Footer from '../../components/Footer/footer'
 import { useNavigate } from 'react-router-dom'
+
 import {
   getCachedHarryPotterCharacters,
   setCachedHarryPotterCharacters,
 } from '../../services/storage/characters'
 
-const Staff: FC = () => {
+import type { Props } from './staffTypes'
+import Loading from '../../components/Loading/loading'
+
+
+const Staff: FC<Props> = ({ onLogout }) => {
   const navigate = useNavigate()
   const [staffs, setStaffs] = useState<Character[]>([])
   const [isLoading, setIsLoading] = useState(true)
@@ -38,7 +43,7 @@ const Staff: FC = () => {
   }, [fetchStaff])
 
   if (isLoading) {
-    ;<div>AQUI VA LOADING</div>
+    return <Loading />
   }
 
   const handleRemoveCharacter = useCallback((characterId: string) => {
@@ -53,8 +58,12 @@ const Staff: FC = () => {
 
   return (
     <Container>
-      <Header />
+      <Header onLogout={onLogout} />
       <Content>
+
+        <StyledTitle className="title">Staff</StyledTitle>
+
+
         <ButtonContainer>
           <BackButton />
           <Button onClick={handleGoToCreate}>Add</Button>

@@ -1,6 +1,7 @@
 import { Character, EditCharacterInput } from '../../models/characters'
+import { getUserInfo } from './user'
 
-export const HP_ALL_CHARACTERS_KEY = 'hpAllCharacters'
+const HP_ALL_CHARACTERS_KEY = 'hpAllCharacters'
 const CHARACTERS_FAV = 'charactersFav'
 
 export const getCachedHarryPotterCharacters = (): Character[] => {
@@ -35,12 +36,16 @@ export type CharacterInput = {
 }
 
 export const getFavoritesCharacters = (): Character[] => {
-  const response = window.localStorage.getItem(CHARACTERS_FAV)
+  const userEmail = getUserInfo()
+  const favUserKey = `${CHARACTERS_FAV}-${userEmail.email}`
+  const response = window.localStorage.getItem(favUserKey)
   return response ? JSON.parse(response) : []
 }
 
 export const setFavoritesCharacters = (favCharacters: Character[]) => {
-  window.localStorage.setItem(CHARACTERS_FAV, JSON.stringify(favCharacters))
+  const userEmail = getUserInfo()
+  const favUserKey = `${CHARACTERS_FAV}-${userEmail.email}`
+  window.localStorage.setItem(favUserKey, JSON.stringify(favCharacters))
 }
 
 export const toggleFavoritesCharacters = (character: Character) => {
@@ -77,6 +82,5 @@ export const editCachedCharacter = (id: string, values: EditCharacterInput) => {
 
 export const resetCharactersCache = () => {
   window.localStorage.removeItem(HP_ALL_CHARACTERS_KEY)
-  window.localStorage.removeItem(CHARACTERS_FAV)
 }
 

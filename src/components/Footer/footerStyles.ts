@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const FooterContainer = styled.footer`
+export const FooterContainer = styled.footer`
   position: fixed;
   bottom: 0px;
   border: 3px solid black;
@@ -12,7 +12,7 @@ const FooterContainer = styled.footer`
   z-index: 3;
 `
 
-const FooterContent = styled.div`
+export const FooterContent = styled.div`
   background-color: black;
   display: flex;
   text-align: top;
@@ -20,10 +20,8 @@ const FooterContent = styled.div`
   width: 100%;
 `
 
-const FooterText = styled.p`
+export const FooterText = styled.p`
   position: relative;
   color: #9a9292;
   font-size: 14px;
 `
-
-export { FooterContainer, FooterContent, FooterText }
