@@ -12,7 +12,7 @@ import { resetStudentsCache } from '../../services/storage/students'
 import { removeToken } from '../../services/storage/token'
 import { resetUserInfo } from '../../services/storage/user'
 
-const Header: FC<Props> = ({}) => {
+const Header: FC<Props> = ({ onLogout }) => {
   const navigate = useNavigate()
 
   const handleReset = useCallback(() => {
@@ -20,7 +20,7 @@ const Header: FC<Props> = ({}) => {
     resetSpellsCache()
     resetStaffCache()
     resetStudentsCache()
-    navigate('./')
+    navigate('/')
   }, [navigate])
 
   const handleGoToProfile = useCallback(() => {
@@ -31,6 +31,7 @@ const Header: FC<Props> = ({}) => {
     await logout()
     removeToken()
     resetUserInfo()
+    onLogout()
     navigate('/login')
   }, [navigate])
 

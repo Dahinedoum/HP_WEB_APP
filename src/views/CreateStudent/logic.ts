@@ -1,6 +1,5 @@
 import { useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { addNewCharacter } from '../../services/storage/characters'
 import { addNewStudent } from '../../services/storage/students'
 
 const useLogic = () => {

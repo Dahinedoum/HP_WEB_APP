@@ -14,8 +14,9 @@ import { Character } from '../../models/characters'
 import BackButton from '../../components/BackButton/backButton'
 import Footer from '../../components/Footer/footer'
 import { useNavigate } from 'react-router-dom'
+import type { Props } from './allCharactersTypes'
 
-const AllCharacters: FC = () => {
+const AllCharacters: FC<Props> = ({ onLogout }) => {
   const navigate = useNavigate()
   const [characters, setCharacters] = useState<Character[]>([])
   const [isLoading, setIsLoading] = useState(true)
@@ -40,7 +41,7 @@ const AllCharacters: FC = () => {
 
   return (
     <Container>
-      <Header />
+      <Header onLogout={onLogout} />
       <Content>
         <StyledTitle className="title">All Characters</StyledTitle>
         <ButtonContainer>

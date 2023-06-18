@@ -14,14 +14,13 @@ import {
   Label,
   Link,
   Title,
- 
 } from './loginStyles'
+import type { Props } from './loginTypes'
 
-const Login: FC = () => {
-  const { handleOnSubmit } = useLogic()
+const Login: FC<Props> = ({ onLogin }) => {
+  const { handleOnSubmit } = useLogic(onLogin)
   return (
     <Container>
-      
       <Formik
         initialValues={InitialValues}
         validationSchema={ValidationSchema}

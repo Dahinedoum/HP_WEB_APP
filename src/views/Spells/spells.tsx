@@ -14,8 +14,9 @@ import { getHarryPotterSpells } from '../../services/harryPotter/spells'
 import SpellCard from '../../components/SpellCard/spellCard'
 import Footer from '../../components/Footer/footer'
 import { useNavigate } from 'react-router-dom'
+import type { Props } from './spellsTypes'
 
-const Spells: FC = () => {
+const Spells: FC<Props> = ({ onLogout }) => {
   const navigate = useNavigate()
   const [spells, setSpells] = useState<Spell[]>([])
   const [isLoading, setIsLoading] = useState(true)
@@ -40,7 +41,7 @@ const Spells: FC = () => {
 
   return (
     <Container>
-      <Header />
+      <Header onLogout={onLogout} />
       <Content>
         <StyledTitle className="title">Spells</StyledTitle>
         <ButtonContainer>
