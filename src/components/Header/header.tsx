@@ -33,7 +33,7 @@ const Header: FC<Props> = ({ onLogout }) => {
     resetUserInfo()
     onLogout()
     navigate('/login')
-  }, [navigate])
+  }, [navigate, onLogout])
 
   return (
     <Container>

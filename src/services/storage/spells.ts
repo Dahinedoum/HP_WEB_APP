@@ -1,6 +1,7 @@
 import { Spell } from '../../models/spells'
+import { getUserInfo } from './user'
 
-export const HP_SPELLS_KEY = 'hpSpells'
+const HP_SPELLS_KEY = 'hpSpells'
 const SPELLS_FAV = 'spellsFav'
 
 export const getCachedHarryPotterSpells = (): Spell[] => {
@@ -28,12 +29,16 @@ export type SpellsInput = {
 }
 
 export const getFavoritesSpells = (): Spell[] => {
-  const response = window.localStorage.getItem(SPELLS_FAV)
+  const userEmail = getUserInfo()
+  const favUserKey = `${SPELLS_FAV}-${userEmail.email}`
+  const response = window.localStorage.getItem(favUserKey)
   return response ? JSON.parse(response) : []
 }
 
 export const setFavoritesSpells = (favSpells: Spell[]) => {
-  window.localStorage.setItem(SPELLS_FAV, JSON.stringify(favSpells))
+  const userEmail = getUserInfo()
+  const favUserKey = `${SPELLS_FAV}-${userEmail.email}`
+  window.localStorage.setItem(favUserKey, JSON.stringify(favSpells))
 }
 
 export const toggleFavoritesSpells = (spell: Spell) => {
@@ -49,5 +54,4 @@ export const toggleFavoritesSpells = (spell: Spell) => {
 
 export const resetSpellsCache = () => {
   window.localStorage.removeItem(HP_SPELLS_KEY)
-  window.localStorage.removeItem(SPELLS_FAV)
 }

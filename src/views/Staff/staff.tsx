@@ -15,6 +15,7 @@ import { getHarryPotterStaff } from '../../services/harryPotter/staff'
 import Footer from '../../components/Footer/footer'
 import { useNavigate } from 'react-router-dom'
 import type { Props } from './staffTypes'
+import Loading from '../../components/Loading/loading'
 
 const Staff: FC<Props> = ({ onLogout }) => {
   const navigate = useNavigate()
@@ -36,7 +37,7 @@ const Staff: FC<Props> = ({ onLogout }) => {
   }, [fetchStaff])
 
   if (isLoading) {
-    ;<div>AQUI VA LOADING</div>
+    return <Loading />
   }
 
   return (

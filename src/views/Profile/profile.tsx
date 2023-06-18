@@ -33,11 +33,11 @@ const Perfil: FC<Props> = ({ onLogout }) => {
       <ButtonContainer>
         <BackButton />
       </ButtonContainer>
-      <Title>Welcome {user[0].email}!</Title>
+      <Title>Welcome {user.email}!</Title>
       <PerfilContainer>
         <Avatar />
         <InfoContainer>
-          <InfoItem>Email: {user[0].email}</InfoItem>
+          <InfoItem>Email: {user.email}</InfoItem>
         </InfoContainer>
       </PerfilContainer>
       <Title>My favorites characters</Title>

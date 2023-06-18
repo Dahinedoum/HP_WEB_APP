@@ -1,3 +1,5 @@
+import { UserInfo } from 'firebase/auth'
+
 export const USER_INFO_KEY = 'userInfo'
 
 export const getUserInfo = () => {
@@ -5,7 +7,7 @@ export const getUserInfo = () => {
   return response ? JSON.parse(response) : null
 }
 
-export const setUserInfo = (userInfo: any) => {
+export const setUserInfo = (userInfo: UserInfo) => {
   window.localStorage.setItem(USER_INFO_KEY, JSON.stringify(userInfo))
 }
 

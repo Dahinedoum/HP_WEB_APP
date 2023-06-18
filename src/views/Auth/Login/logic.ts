@@ -13,7 +13,7 @@ const useLogic = (onLogin: Props['onLogin']) => {
         const user = await login(values.email, values.password)
         if (user) {
           const token = await user.getIdToken()
-          const userInfo = user.providerData
+          const userInfo = user
           setUserInfo(userInfo)
           setToken(token)
           onLogin()

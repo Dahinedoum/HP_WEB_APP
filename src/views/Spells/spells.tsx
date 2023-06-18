@@ -15,6 +15,7 @@ import SpellCard from '../../components/SpellCard/spellCard'
 import Footer from '../../components/Footer/footer'
 import { useNavigate } from 'react-router-dom'
 import type { Props } from './spellsTypes'
+import Loading from '../../components/Loading/loading'
 
 const Spells: FC<Props> = ({ onLogout }) => {
   const navigate = useNavigate()
@@ -36,7 +37,7 @@ const Spells: FC<Props> = ({ onLogout }) => {
   }, [fetchSpells])
 
   if (isLoading) {
-    ;<div>AQUI VA LOADING</div>
+    return <Loading />
   }
 
   return (

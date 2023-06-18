@@ -8,12 +8,16 @@ import type { Props } from './signupTypes'
 const useLogic = (onSignup: Props['onSignup']) => {
   const navigate = useNavigate()
   const handleOnSubmit = useCallback(
-    async (values: { email: string; password: string; name: string }) => {
+    async (values: {
+      email: string
+      password: string
+      displayName: string
+    }) => {
       try {
         const user = await signup(values.email, values.password)
         if (user) {
           const token = await user.getIdToken()
-          const userInfo = user.providerData
+          const userInfo = user
           setUserInfo(userInfo)
           setToken(token)
           onSignup()
@@ -23,7 +27,7 @@ const useLogic = (onSignup: Props['onSignup']) => {
         console.log(error)
       }
     },
-    [navigate]
+    [navigate, onSignup]
   )
 
   return { handleOnSubmit }

@@ -15,6 +15,7 @@ import BackButton from '../../components/BackButton/backButton'
 import Footer from '../../components/Footer/footer'
 import { useNavigate } from 'react-router-dom'
 import type { Props } from './allCharactersTypes'
+import Loading from '../../components/Loading/loading'
 
 const AllCharacters: FC<Props> = ({ onLogout }) => {
   const navigate = useNavigate()
@@ -36,7 +37,7 @@ const AllCharacters: FC<Props> = ({ onLogout }) => {
   }, [fetchAllCharacters])
 
   if (isLoading) {
-    ;<div>AQUI VA LOADING</div>
+    return <Loading />
   }
 
   return (

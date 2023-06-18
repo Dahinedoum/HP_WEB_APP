@@ -1,7 +1,8 @@
 import { Character } from '../../models/characters'
+import { getUserInfo } from './user'
 
-export const HP_STUDENTS_KEY = 'hpStudents'
-export const STUDENTS_FAV = 'studentsFav'
+const HP_STUDENTS_KEY = 'hpStudents'
+const STUDENTS_FAV = 'studentsFav'
 
 export const getCachedHarryPotterStudents = (): Character[] => {
   const response = window.localStorage.getItem(HP_STUDENTS_KEY)
@@ -25,12 +26,16 @@ export type StudentsInput = {
 }
 
 export const getFavoritesStudents = (): Character[] => {
-  const response = window.localStorage.getItem(STUDENTS_FAV)
+  const userEmail = getUserInfo()
+  const favUserKey = `${STUDENTS_FAV}-${userEmail.email}`
+  const response = window.localStorage.getItem(favUserKey)
   return response ? JSON.parse(response) : []
 }
 
 export const setFavoritesStudents = (favStudents: Character[]) => {
-  window.localStorage.setItem(STUDENTS_FAV, JSON.stringify(favStudents))
+  const userEmail = getUserInfo()
+  const favUserKey = `${STUDENTS_FAV}-${userEmail.email}`
+  window.localStorage.setItem(favUserKey, JSON.stringify(favStudents))
 }
 
 export const toggleFavoritesStudents = (student: Character) => {

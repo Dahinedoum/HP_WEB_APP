@@ -34,11 +34,13 @@ const Signup: FC<Props> = ({ onSignup }) => {
                 <Label>Name</Label>
                 <Input
                   type="text"
-                  name="name"
+                  name="displayName"
                   onChange={handleChange}
-                  value={values.name}
+                  value={values.displayName}
                 />
-                {errors?.name && <InputError>{errors.name}</InputError>}
+                {errors?.displayName && (
+                  <InputError>{errors.displayName}</InputError>
+                )}
               </InputController>
               <InputController>
                 <Label>Email</Label>
