@@ -1,14 +1,14 @@
-import { FC } from 'react'
-import { FooterContainer, FooterContent, FooterText } from './footerStyles'
+import { FC, memo } from 'react'
+import { Container, Content, Text } from './footerStyles'
 
 const Footer: FC = () => {
   return (
-    <FooterContainer>
-      <FooterContent>
-        <FooterText>© 2023 Harry Potter </FooterText>
-      </FooterContent>
-    </FooterContainer>
+    <Container>
+      <Content>
+        <Text>© 2023 Harry Potter </Text>
+      </Content>
+    </Container>
   )
 }
 
-export default Footer
+export default memo(Footer)

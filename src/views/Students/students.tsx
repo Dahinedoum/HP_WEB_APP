@@ -1,27 +1,25 @@
 import { FC, memo, useCallback, useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Character } from '../../models/characters'
 import Header from '../../components/Header/header'
 import Card from '../../components/Card/card'
-import {
-  Button,
-  ButtonContainer,
-  StudentsCards,
-  StudentsContainer,
-  StudentsContent,
-  StyledTitle,
-} from './studentsStyles'
-import { getHarryPotterStudents } from '../../services/harryPotter/students'
+import Loading from '../../components/Loading/loading'
 import BackButton from '../../components/BackButton/backButton'
 import Footer from '../../components/Footer/footer'
-import { useNavigate } from 'react-router-dom'
-
+import { getHarryPotterStudents } from '../../services/harryPotter/students'
 import {
   getCachedHarryPotterCharacters,
   setCachedHarryPotterCharacters,
 } from '../../services/storage/characters'
-
 import type { Props } from './studentsTypes'
-import Loading from '../../components/Loading/loading'
+import {
+  Button,
+  ButtonContainer,
+  Cards,
+  Container,
+  Content,
+  StyledTitle,
+} from './studentsStyles'
 
 const Students: FC<Props> = ({ onLogout }) => {
   const navigate = useNavigate()
@@ -33,6 +31,10 @@ const Students: FC<Props> = ({ onLogout }) => {
     setStudents(studentsList)
     setIsLoading(false)
   }, [])
+
+  useEffect(() => {
+    fetchStudents()
+  }, [fetchStudents])
 
   const handleRemoveCharacter = useCallback((characterId: string) => {
     const currentCharacters = getCachedHarryPotterCharacters()
@@ -48,25 +50,21 @@ const Students: FC<Props> = ({ onLogout }) => {
     navigate('/create/student')
   }, [navigate])
 
-  useEffect(() => {
-    fetchStudents()
-  }, [fetchStudents])
-
   if (isLoading) {
     return <Loading />
   }
 
   return (
-    <StudentsContainer>
+    <Container>
       <Header onLogout={onLogout} />
-      <StudentsContent>
-        <StyledTitle className="title">Students</StyledTitle>
+      <Content>
+        <StyledTitle>Students</StyledTitle>
 
         <ButtonContainer>
           <BackButton />
           <Button onClick={handleGoToCreate}>Add</Button>
         </ButtonContainer>
-        <StudentsCards>
+        <Cards>
           {students.map((student, index) => (
             <Card
               key={index}
@@ -75,10 +73,10 @@ const Students: FC<Props> = ({ onLogout }) => {
               onRemove={handleRemoveCharacter}
             />
           ))}
-        </StudentsCards>
-      </StudentsContent>
+        </Cards>
+      </Content>
       <Footer />
-    </StudentsContainer>
+    </Container>
   )
 }
 

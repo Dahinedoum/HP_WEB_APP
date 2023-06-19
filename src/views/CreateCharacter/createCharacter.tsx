@@ -1,6 +1,12 @@
 import { FC, memo } from 'react'
+import { Formik } from 'formik'
+import { validationSchema, initialValues } from './constants'
+import BackButton from '../../components/BackButton/backButton'
+import Footer from '../../components/Footer/footer'
+import useLogic from './logic'
 import {
   Button,
+  ButtonContainer,
   Container,
   Form,
   FormContent,
@@ -10,21 +16,16 @@ import {
   Title,
 } from './createCharacterStyles'
 
-import { Formik } from 'formik'
-import BackButton from '../../components/BackButton/backButton'
-import { validationNewCardSchema, initialValues } from './constants'
-import Footer from '../../components/Footer/footer'
-
-import useLogic from './logic'
-
 const NewCharacter: FC = () => {
   const { handleAddNewCharacter } = useLogic()
   return (
     <Container>
-      <BackButton />
+      <ButtonContainer>
+        <BackButton />
+      </ButtonContainer>
       <Formik
         initialValues={initialValues}
-        validationSchema={validationNewCardSchema}
+        validationSchema={validationSchema}
         onSubmit={handleAddNewCharacter}
       >
         {({ handleSubmit, handleChange, values }) => (
@@ -44,7 +45,7 @@ const NewCharacter: FC = () => {
               <InputController>
                 <Label>Date Of Birth</Label>
                 <Input
-                  type="number"
+                  type="text"
                   name="dateOfBirth"
                   onChange={handleChange}
                   value={values.dateOfBirth}

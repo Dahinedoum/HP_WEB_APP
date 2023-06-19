@@ -15,8 +15,6 @@ export const getHarryPotterStaff = async () => {
       `https://hp-api.onrender.com/api/characters/staff`
     )
     const data: CharactersResponse[] = await response.json()
-    console.log(data)
-
     const normalizedStaff = data.map(normalizeCharacters)
     setCachedHarryPotterStaff(normalizedStaff)
     return normalizedStaff

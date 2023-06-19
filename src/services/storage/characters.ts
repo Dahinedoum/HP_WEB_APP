@@ -83,4 +83,3 @@ export const editCachedCharacter = (id: string, values: EditCharacterInput) => {
 export const resetCharactersCache = () => {
   window.localStorage.removeItem(HP_ALL_CHARACTERS_KEY)
 }
-

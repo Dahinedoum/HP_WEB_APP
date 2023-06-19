@@ -1,4 +1,17 @@
 import { FC, memo, useCallback, useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import Header from '../../components/Header/header'
+import BackButton from '../../components/BackButton/backButton'
+import Loading from '../../components/Loading/loading'
+import SpellCard from '../../components/SpellCard/spellCard'
+import Footer from '../../components/Footer/footer'
+import { Spell } from '../../models/spells'
+import { getHarryPotterSpells } from '../../services/harryPotter/spells'
+import {
+  getCachedHarryPotterSpells,
+  setCachedHarryPotterSpells,
+} from '../../services/storage/spells'
+import type { Props } from './spellsTypes'
 import {
   Button,
   ButtonContainer,
@@ -7,19 +20,6 @@ import {
   Content,
   StyledTitle,
 } from './spellsStyles'
-import Header from '../../components/Header/header'
-import BackButton from '../../components/BackButton/backButton'
-import { Spell } from '../../models/spells'
-import { getHarryPotterSpells } from '../../services/harryPotter/spells'
-import SpellCard from '../../components/SpellCard/spellCard'
-import Footer from '../../components/Footer/footer'
-import { useNavigate } from 'react-router-dom'
-
-import { getCachedHarryPotterSpells, setCachedHarryPotterSpells } from '../../services/storage/spells'
-
-import type { Props } from './spellsTypes'
-import Loading from '../../components/Loading/loading'
-
 
 const Spells: FC<Props> = ({ onLogout }) => {
   const navigate = useNavigate()
@@ -32,13 +32,13 @@ const Spells: FC<Props> = ({ onLogout }) => {
     setIsLoading(false)
   }, [])
 
-  const handleGoToCreate = useCallback(() => {
-    navigate('/create/spell')
-  }, [navigate])
-
   useEffect(() => {
     fetchSpells()
   }, [fetchSpells])
+
+  const handleGoToCreate = useCallback(() => {
+    navigate('/create/spell')
+  }, [navigate])
 
   const handleRemoveSpell = useCallback((spellId: string) => {
     const currentSpells = getCachedHarryPotterSpells()
@@ -48,7 +48,7 @@ const Spells: FC<Props> = ({ onLogout }) => {
     setCachedHarryPotterSpells(filteredSpells)
     setSpells(filteredSpells)
   }, [])
-  
+
   if (isLoading) {
     return <Loading />
   }
@@ -57,7 +57,7 @@ const Spells: FC<Props> = ({ onLogout }) => {
     <Container>
       <Header onLogout={onLogout} />
       <Content>
-        <StyledTitle className="title">Spells</StyledTitle>
+        <StyledTitle>Spells</StyledTitle>
         <ButtonContainer>
           <BackButton />
           <Button onClick={handleGoToCreate}>Add</Button>

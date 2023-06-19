@@ -1,9 +1,9 @@
 import { FC } from 'react'
 import type { Props } from './buttonTypes'
-import { Boton } from './buttonStyles'
+import { CustomButton } from './buttonStyles'
 
 export const Button: FC<Props> = ({ children, onClick }) => {
-  return <Boton onClick={onClick}>{children}</Boton>
+  return <CustomButton onClick={onClick}>{children}</CustomButton>
 }
 
 export default Button

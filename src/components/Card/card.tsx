@@ -1,5 +1,10 @@
-import { FC, memo, useState, useCallback, useEffect } from 'react'
-import { Props } from './cardTypes'
+import { FC, memo, useState, useCallback } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+import Button from '../Button/button'
+import type { Props } from './cardTypes'
+import { toggleFavoritesCharacters } from '../../services/storage/characters'
+import { toggleFavoritesStaff } from '../../services/storage/staff'
+import { toggleFavoritesStudents } from '../../services/storage/students'
 import {
   ButtonContainer,
   Container,
@@ -10,6 +15,7 @@ import {
   Header,
   Image,
 } from './cardStyles'
+
 import {
   getCachedCharacterById,
   toggleFavoritesCharacters,
@@ -31,8 +37,8 @@ const Card: FC<Props> = ({
   onRemove,
 }) => {
   const { characterId, studentId, staffId } = useParams()
-  const [queryData] = useSearchParams()
   const navigate = useNavigate()
+
   const [hpCharacter, setCharacter] = useState<Character | null>(null)
   const [isEdit, setIsEdit] = useState(false)
   const [isFav, setIsFav] = useState(character.isFav)
@@ -46,6 +52,9 @@ const Card: FC<Props> = ({
       }
     }
   }, [characterId])
+
+
+  const [isFav, setIsFav] = useState(character.isFav)
 
   const handleToggleFavoritesCharacters = useCallback(() => {
     if (character) {

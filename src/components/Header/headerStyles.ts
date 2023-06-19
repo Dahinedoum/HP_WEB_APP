@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.header`
-background-image: linear-gradient(to bottom, #694639, #4f2f41); 
+  background-image: linear-gradient(to bottom, #694639, #4f2f41);
   height: 90px;
   position: fixed;
   width: 100%;
@@ -10,7 +10,7 @@ background-image: linear-gradient(to bottom, #694639, #4f2f41);
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px ${({ theme }) => theme.colors.transparent};
   z-index: 3;
 
   @media screen and (max-width: 768px) {
@@ -30,8 +30,8 @@ export const ButtonContainer = styled.div`
 
 export const Button = styled.button`
   background-image: url('/ButtonBackground.jpg');
-  background-repeat: repeat;
-  color: black;
+  background-repeat: no-repeat;
+  color: ${({ theme }) => theme.colors.black};
   padding: 10px 20px;
   border: none;
   margin-right: 10px;
@@ -41,16 +41,16 @@ export const Button = styled.button`
   transition: all 0.1s ease-in-out;
   min-width: 115px;
   font-family: 'Times New Roman', serif;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px 1px ${({ theme }) => theme.colors.transparentBlack2};
 
   &:hover {
-    background-color: #965e25;
-    text-shadow: 0px 0px 10px black;
+    background-color: ${({ theme }) => theme.colors.brown};
+    text-shadow: 0px 0px 10px ${({ theme }) => theme.colors.black};
   }
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 5px #3f51b5;
+    box-shadow: 0 0 5px ${({ theme }) => theme.colors.blue};
   }
 
   @media screen and (max-width: 768px) {
@@ -60,7 +60,13 @@ export const Button = styled.button`
   }
 `
 export const Image = styled.img`
-height:75px;
-width: 75px;
-margin-left: 40px ;
+  height: 75px;
+  width: 75px;
+  margin-left: 40px;
+
+  @media screen and (max-width: 768px) {
+    height: 50px;
+    width: 50px;
+    margin-right: 10px;
+  }
 `

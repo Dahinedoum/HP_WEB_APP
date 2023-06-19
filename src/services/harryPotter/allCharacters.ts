@@ -13,8 +13,6 @@ export const getHarryPotterCharacters = async () => {
   if (!savedCharacters || savedCharacters.length <= 0) {
     const response = await fetch(`https://hp-api.onrender.com/api/characters`)
     const data: CharactersResponse[] = await response.json()
-    console.log(data)
-
     const normalizedCharacters = data.map(normalizeCharacters)
     setCachedHarryPotterCharacters(normalizedCharacters)
     return normalizedCharacters

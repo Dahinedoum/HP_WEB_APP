@@ -1,5 +1,7 @@
 import { FC, memo, useCallback, useState } from 'react'
-import { Props } from './spellCardTypes'
+import Button from '../Button/button'
+import type { Props } from './spellCardTypes'
+import { toggleFavoritesSpells } from '../../services/storage/spells'
 import {
   Container,
   Content,
@@ -9,6 +11,7 @@ import {
   Header,
   Image,
 } from './spellCardStyles'
+
 import {
   getCachedHarryPotterSpells,
   setCachedHarryPotterSpells,
@@ -16,6 +19,7 @@ import {
 } from '../../services/storage/spells'
 import Button from '../Button/button'
 import { FaHeart, FaTrashAlt } from 'react-icons/fa'
+
 
 const SpellCard: FC<Props> = ({ spell, isProfile = false, onRemove }) => {
   const [isFav, setIsFav] = useState(spell.isFav)
@@ -42,6 +46,8 @@ const SpellCard: FC<Props> = ({ spell, isProfile = false, onRemove }) => {
               <Button onClick={() => onRemove(spell.id)}>
                 <FaTrashAlt />
               </Button>
+
+
             </FooterContent>
           )}
 

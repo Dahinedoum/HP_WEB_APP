@@ -1,22 +1,16 @@
 import { FC, memo, useCallback } from 'react'
-import { Container, ButtonContainer, Button, Image } from './headerStyles'
 import { useNavigate } from 'react-router-dom'
 import type { Props } from './headerTypes'
-
 import { logout } from '../../services/firebase/auth'
-
 import { resetCharactersCache } from '../../services/storage/characters'
 import { resetSpellsCache } from '../../services/storage/spells'
 import { resetStaffCache } from '../../services/storage/staff'
 import { resetStudentsCache } from '../../services/storage/students'
 import { removeToken } from '../../services/storage/token'
 import { resetUserInfo } from '../../services/storage/user'
-
-
-
+import { Container, ButtonContainer, Button, Image } from './headerStyles'
 
 const Header: FC<Props> = ({ onLogout }) => {
-
   const navigate = useNavigate()
 
   const handleReset = useCallback(() => {

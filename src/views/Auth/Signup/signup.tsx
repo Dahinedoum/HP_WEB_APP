@@ -1,5 +1,8 @@
 import { FC, memo } from 'react'
 import { Formik } from 'formik'
+import { InitialValues, ValidationSchema } from './constants'
+import type { Props } from './signupTypes'
+import useLogic from './logic'
 import {
   Button,
   Container,
@@ -13,9 +16,6 @@ import {
   Link,
   Title,
 } from './signupStyles'
-import { InitialValues, ValidationSchema } from './constants'
-import useLogic from './logic'
-import type { Props } from './signupTypes'
 
 const Signup: FC<Props> = ({ onSignup }) => {
   const { handleOnSubmit } = useLogic(onSignup)

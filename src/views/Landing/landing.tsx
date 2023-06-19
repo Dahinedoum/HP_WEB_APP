@@ -1,17 +1,17 @@
 import { FC, memo, useCallback } from 'react'
+import { useNavigate } from 'react-router-dom'
+import Header from '../../components/Header/header'
+import Footer from '../../components/Footer/footer'
+import Image from '../../components/Image/image'
+import type { Props } from './landingTypes'
 import {
   CategoryContainer,
   CategoryContent,
   CategoryHeaderContainer,
-  LandingContainer,
-  LandingContent,
+  Container,
+  Content,
   Button,
 } from './landingStyles'
-import Header from '../../components/Header/header'
-import Footer from '../../components/Footer/footer'
-import Image from '../../components/Image/image'
-import { useNavigate } from 'react-router-dom'
-import type { Props } from './landingTypes'
 
 const Landing: FC<Props> = ({ onLogout }) => {
   const navigate = useNavigate()
@@ -31,11 +31,10 @@ const Landing: FC<Props> = ({ onLogout }) => {
     navigate('/spells')
   }, [navigate])
 
-
   return (
-    <LandingContainer>
+    <Container>
       <Header onLogout={onLogout} />
-      <LandingContent>
+      <Content>
         <CategoryContainer>
           <CategoryContent>
             <CategoryHeaderContainer>
@@ -64,9 +63,9 @@ const Landing: FC<Props> = ({ onLogout }) => {
             <Button onClick={handleGoToSpells}>View Spells</Button>
           </CategoryContent>
         </CategoryContainer>
-      </LandingContent>
+      </Content>
       <Footer />
-    </LandingContainer>
+    </Container>
   )
 }
 

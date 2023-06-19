@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const StudentsContainer = styled.div`
+export const Container = styled.div`
   background: url('/carta.jpg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -17,19 +17,20 @@ export const StudentsContainer = styled.div`
 `
 export const StyledTitle = styled.h1`
   font-size: 50px;
-  color: blanchedalmond;
+  color: ${({ theme }) => theme.colors.almond};
   text-align: center;
   margin: 20px;
-  font-family: "Old English Text MT", cursive;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-`;
-export const StudentsContent = styled.div`
+  font-family: 'Old English Text MT', cursive;
+  text-shadow: 1px 1px 1px ${({ theme }) => theme.colors.transparentBlack2};
+`
+
+export const Content = styled.div`
   margin-top: 100px;
   margin-left: 20px;
   margin-right: 10px;
 `
 
-export const StudentsCards = styled.div`
+export const Cards = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -57,16 +58,16 @@ export const Button = styled.button`
   margin-bottom: 10px;
   border-radius: 50px;
   font-size: 20px;
-  color: white;
-  border: white;
-  background-color: rgba(0, 0, 0, 0.5);
+  color: ${({ theme }) => theme.colors.white};
+  border: none;
+  background-color: ${({ theme }) => theme.colors.transparentBlack};
   cursor: pointer;
   position: sticky;
   top: 100px;
   z-index: 2;
 
   &:hover {
-    background-color: rgba(0, 0, 0, 1);
+    background-color: ${({ theme }) => theme.colors.black};
   }
 
   @media screen and (max-width: 768px) {

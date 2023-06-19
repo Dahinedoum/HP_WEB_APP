@@ -1,6 +1,7 @@
+import { FC, memo } from 'react'
 import { Container, Gif } from './loadingStyles'
 
-const Loading = () => {
+const Loading: FC = () => {
   return (
     <Container>
       <Gif />
@@ -8,4 +9,4 @@ const Loading = () => {
   )
 }
 
-export default Loading
+export default memo(Loading)
