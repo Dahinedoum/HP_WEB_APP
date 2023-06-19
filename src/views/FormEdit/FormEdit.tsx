@@ -2,7 +2,7 @@ import { FC, memo } from 'react'
 import { Formik } from 'formik'
 import { ValidationSchema } from './constants'
 import useLogic from './logic'
-import { Props } from './formEditTypes'
+import type { Props } from './formEditTypes'
 import {
   Button,
   Container,

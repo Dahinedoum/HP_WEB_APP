@@ -7,7 +7,7 @@ export const initialValues = {
   house: '',
 }
 
-export const validationNewCardSchema = object({
+export const validationSchema = object({
   name: string().required('Please enter a valid date'),
   dateOfBirth: string().required('Please enter a valid date'),
   gender: string().required('required'),

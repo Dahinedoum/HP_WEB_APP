@@ -1,5 +1,10 @@
-import { FC, memo, useState, useCallback, useEffect } from 'react'
-import { Props } from './cardTypes'
+import { FC, memo, useState, useCallback } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
+import Button from '../Button/button'
+import type { Props } from './cardTypes'
+import { toggleFavoritesCharacters } from '../../services/storage/characters'
+import { toggleFavoritesStaff } from '../../services/storage/staff'
+import { toggleFavoritesStudents } from '../../services/storage/students'
 import {
   ButtonContainer,
   Container,
@@ -10,11 +15,6 @@ import {
   Header,
   Image,
 } from './cardStyles'
-import { toggleFavoritesCharacters } from '../../services/storage/characters'
-import Button from '../Button/button'
-import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
-import { toggleFavoritesStaff } from '../../services/storage/staff'
-import { toggleFavoritesStudents } from '../../services/storage/students'
 
 const Card: FC<Props> = ({
   character,
@@ -24,14 +24,8 @@ const Card: FC<Props> = ({
   onRemove,
 }) => {
   const { characterId, studentId, staffId } = useParams()
-  const [queryData] = useSearchParams()
   const navigate = useNavigate()
-  const [isEdit, setIsEdit] = useState(false)
   const [isFav, setIsFav] = useState(character.isFav)
-
-  useEffect(() => {
-    setIsEdit(!!queryData.get('edit'))
-  }, [queryData])
 
   const handleToggleFavoritesCharacters = useCallback(() => {
     if (character) {

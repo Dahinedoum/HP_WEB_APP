@@ -1,5 +1,7 @@
 import { FC, memo, useCallback, useState } from 'react'
-import { Props } from './spellCardTypes'
+import Button from '../Button/button'
+import type { Props } from './spellCardTypes'
+import { toggleFavoritesSpells } from '../../services/storage/spells'
 import {
   Container,
   Content,
@@ -9,8 +11,6 @@ import {
   Header,
   Image,
 } from './spellCardStyles'
-import { toggleFavoritesSpells } from '../../services/storage/spells'
-import Button from '../Button/button'
 
 const SpellCard: FC<Props> = ({ spell, isProfile = false, onRemove }) => {
   const [isFav, setIsFav] = useState(spell.isFav)

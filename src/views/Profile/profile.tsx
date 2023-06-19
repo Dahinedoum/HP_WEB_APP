@@ -1,16 +1,10 @@
 import { FC, memo, useCallback } from 'react'
-import {
-  PerfilContainer,
-  Avatar,
-  InfoContainer,
-  AdditionalContainer,
-  ButtonContainer,
-  InfoItem,
-  Title,
-} from './profileStyles'
 import Header from '../../components/Header/header'
 import Footer from '../../components/Footer/footer'
 import BackButton from '../../components/BackButton/backButton'
+import Card from '../../components/Card/card'
+import SpellCard from '../../components/SpellCard/spellCard'
+import VideoBackground from '../../components/VideoBackground/videoBackground'
 import { getUserInfo } from '../../services/storage/user'
 import {
   getCachedHarryPotterCharacters,
@@ -24,10 +18,17 @@ import {
   getFavoritesSpells,
   setCachedHarryPotterSpells,
 } from '../../services/storage/spells'
-import Card from '../../components/Card/card'
-import SpellCard from '../../components/SpellCard/spellCard'
-import { Props } from './profileTypes'
-import VideoBackground from '../../components/VideoBackground/videoBackground'
+import type { Props } from './profileTypes'
+import {
+  Container,
+  PerfilContainer,
+  Avatar,
+  InfoContainer,
+  AdditionalContainer,
+  ButtonContainer,
+  InfoItem,
+  Title,
+} from './profileStyles'
 
 const Perfil: FC<Props> = ({ onLogout }) => {
   const user = getUserInfo()
@@ -55,13 +56,13 @@ const Perfil: FC<Props> = ({ onLogout }) => {
     setCachedHarryPotterSpells(filteredSpells)
   }, [])
   return (
-    <>
+    <Container>
       <Header onLogout={onLogout} />
       <VideoBackground videoSrc="/Stars.mp4" />
       <ButtonContainer>
         <BackButton />
       </ButtonContainer>
-      <Title>Welcome {user.email}!</Title>
+      <Title>Wizard info</Title>
       <PerfilContainer>
         <Avatar />
         <InfoContainer>
@@ -110,7 +111,7 @@ const Perfil: FC<Props> = ({ onLogout }) => {
         ))}
       </AdditionalContainer>
       <Footer />
-    </>
+    </Container>
   )
 }
 

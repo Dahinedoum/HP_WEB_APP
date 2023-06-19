@@ -1,4 +1,17 @@
 import { FC, memo, useCallback, useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import Header from '../../components/Header/header'
+import BackButton from '../../components/BackButton/backButton'
+import Card from '../../components/Card/card'
+import Loading from '../../components/Loading/loading'
+import Footer from '../../components/Footer/footer'
+import { Character } from '../../models/characters'
+import { getHarryPotterStaff } from '../../services/harryPotter/staff'
+import {
+  getCachedHarryPotterCharacters,
+  setCachedHarryPotterCharacters,
+} from '../../services/storage/characters'
+import type { Props } from './staffTypes'
 import {
   Button,
   ButtonContainer,
@@ -7,21 +20,6 @@ import {
   Content,
   StyledTitle,
 } from './staffStyles'
-import Header from '../../components/Header/header'
-import BackButton from '../../components/BackButton/backButton'
-import Card from '../../components/Card/card'
-import { Character } from '../../models/characters'
-import { getHarryPotterStaff } from '../../services/harryPotter/staff'
-import Footer from '../../components/Footer/footer'
-import { useNavigate } from 'react-router-dom'
-
-import {
-  getCachedHarryPotterCharacters,
-  setCachedHarryPotterCharacters,
-} from '../../services/storage/characters'
-
-import type { Props } from './staffTypes'
-import Loading from '../../components/Loading/loading'
 
 const Staff: FC<Props> = ({ onLogout }) => {
   const navigate = useNavigate()
@@ -33,6 +31,11 @@ const Staff: FC<Props> = ({ onLogout }) => {
     setStaffs(staffList)
     setIsLoading(false)
   }, [])
+
+  useEffect(() => {
+    fetchStaff()
+  }, [fetchStaff])
+
   const handleRemoveCharacter = useCallback((characterId: string) => {
     const currentCharacters = getCachedHarryPotterCharacters()
     const filteredCharacters = currentCharacters.filter(
@@ -47,20 +50,15 @@ const Staff: FC<Props> = ({ onLogout }) => {
     navigate('/create/staff')
   }, [navigate])
 
-  useEffect(() => {
-    fetchStaff()
-  }, [fetchStaff])
-
   if (isLoading) {
     return <Loading />
   }
-
 
   return (
     <Container>
       <Header onLogout={onLogout} />
       <Content>
-        <StyledTitle className="title">Staff</StyledTitle>
+        <StyledTitle>Staff</StyledTitle>
 
         <ButtonContainer>
           <BackButton />

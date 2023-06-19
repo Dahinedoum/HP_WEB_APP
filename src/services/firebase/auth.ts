@@ -11,7 +11,6 @@ const auth = getAuth(app)
 export async function login(email: string, password: string) {
   try {
     const credentials = await signInWithEmailAndPassword(auth, email, password)
-    console.log(credentials)
     return credentials?.user ? credentials.user : null
   } catch (error) {
     console.log(error)
@@ -25,7 +24,6 @@ export async function signup(email: string, password: string) {
       email,
       password
     )
-    console.log(credentials)
     return credentials?.user ? credentials.user : null
   } catch (error) {
     console.log(error)

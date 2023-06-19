@@ -1,4 +1,9 @@
 import { FC, memo } from 'react'
+import { Formik } from 'formik'
+import { validationSchema, initialValues } from './constants'
+import BackButton from '../../components/BackButton/backButton'
+import Footer from '../../components/Footer/footer'
+import useLogic from './logic'
 import {
   Button,
   ButtonContainer,
@@ -11,13 +16,6 @@ import {
   Title,
 } from './createSpellStyles'
 
-import { Formik } from 'formik'
-import BackButton from '../../components/BackButton/backButton'
-import { validationNewCardSchema, initialValues } from './constants'
-import Footer from '../../components/Footer/footer'
-
-import useLogic from './logic'
-
 const NewCard: FC = () => {
   const { handleAddNewSpell } = useLogic()
   return (
@@ -27,7 +25,7 @@ const NewCard: FC = () => {
       </ButtonContainer>
       <Formik
         initialValues={initialValues}
-        validationSchema={validationNewCardSchema}
+        validationSchema={validationSchema}
         onSubmit={handleAddNewSpell}
       >
         {({ handleSubmit, handleChange, values }) => (

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const LandingContainer = styled.div`
+export const Container = styled.div`
   background: url('/map.jpg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -19,18 +19,11 @@ export const LandingContainer = styled.div`
   }
 `
 
-export const LandingContent = styled.div`
+export const Content = styled.div`
   width: 80%;
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
-`
-
-export const LandingCards = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
 `
 
 export const Button = styled.button`
@@ -40,7 +33,7 @@ export const Button = styled.button`
   cursor: pointer;
   border: 3px solid ${({ theme }) => theme.colors.lightBrown};
   background-color: ${({ theme }) => theme.colors.sand};
-  font-size: 30px;
+  font-size: 25px;
   min-width: 15px;
   width: 100%;
   color: ${({ theme }) => theme.colors.darkBrown};
@@ -63,7 +56,7 @@ export const Button = styled.button`
     margin-left: 50px;
     width: 150px;
     padding: 8px 16px;
-    font-size: 8px;
+    font-size: 20px;
     left: 6px;
     top: 95px;
   }

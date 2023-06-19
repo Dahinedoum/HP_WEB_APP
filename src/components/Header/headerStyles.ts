@@ -63,4 +63,10 @@ export const Image = styled.img`
   height: 75px;
   width: 75px;
   margin-left: 40px;
+
+  @media screen and (max-width: 768px) {
+    height: 50px;
+    width: 50px;
+    margin-right: 10px;
+  }
 `
