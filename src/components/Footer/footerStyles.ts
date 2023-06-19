@@ -3,17 +3,17 @@ import styled from 'styled-components'
 export const FooterContainer = styled.footer`
   position: fixed;
   bottom: 0px;
-  border: 3px solid black;
+  border: 3px solid ${({ theme }) => theme.colors.black};
   max-height: 1.5rem;
   width: 100%;
-  background: rgba(0, 0, 0, 0.62);
+  background: ${({ theme }) => theme.colors.transparentBlack4};
   padding-bottom: 19px;
   text-align: center;
   z-index: 3;
 `
 
 export const FooterContent = styled.div`
-  background-color: black;
+  background-color: ${({ theme }) => theme.colors.black};
   display: flex;
   text-align: top;
   justify-content: center;
@@ -22,6 +22,6 @@ export const FooterContent = styled.div`
 
 export const FooterText = styled.p`
   position: relative;
-  color: #9a9292;
+  color: ${({ theme }) => theme.colors.grey};
   font-size: 14px;
 `

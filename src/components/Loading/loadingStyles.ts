@@ -15,4 +15,9 @@ export const Gif = styled.div`
   margin: 0 auto;
   height: 700px;
   width: 700px;
+
+  @media screen and (max-width: 768px) {
+    height: 200px;
+    width: 200px;
+  }
 `

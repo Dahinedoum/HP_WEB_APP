@@ -1,6 +1,17 @@
 import styled from 'styled-components'
 
-export const Container = styled.div``
+export const Container = styled.div`
+  background-image: url('/Background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  height: 100vh;
+`
+
+export const ButtonContainer = styled.div`
+  margin-left: 0;
+`
 
 export const Title = styled.h3`
   font-size: 24px;
@@ -13,58 +24,72 @@ export const Title = styled.h3`
 `
 
 export const Label = styled.label`
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 8px;
-`
+  margin-top: 10px;
+  font-size: 17px;
+  font-weight: 600;
+  text-align: center;
+  color: ${({ theme }) => theme.colors.white};
 
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+    margin-top: 5px;
+  }
+`
 export const Input = styled.input`
-  padding: 8px;
-  border-radius: 16px; /* Cambia el valor del border-radius para hacerlo más redondeado */
-  border: 2px solid #8c7d6b;
-  margin-bottom: 16px;
-  display: block;
-  margin: 0 auto;
-  max-width: 300px;
-  background-color: #8c7d6b;
-  color: #fff;
-  font-weight: bold;
-  font-family: 'Press Start 2P', cursive;
-  outline: none;
+  height: 35px;
+  background-color: ${({ theme }) => theme.colors.transparentOldWhite};
+  padding: 0 10px;
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: 300;
+  color: ${({ theme }) => theme.colors.black};
+  border-radius: 12px;
+  border: none;
 
   &:focus {
-    border-color: #ffc600;
-    box-shadow: 0 0 5px 2px #ffc600;
+    background-color: ${({ theme }) => theme.colors.transparentOldWhite2};
+  }
+
+  @media screen and (max-width: 768px) {
+    height: 30px;
   }
 `
 
 export const Button = styled.button`
-  background-color: #8c7d6b;
-  color: #fff;
+  margin-top: 50px;
+  width: 100%;
+  background-color: ${({ theme }) => theme.colors.transparentYellow};
+  color: ${({ theme }) => theme.colors.white};
   padding: 8px 16px;
-  border-radius: 4px;
+  font-size: 17px;
+  font-weight: 600;
+  border-radius: 12px;
   border: none;
   cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  margin-top: 16px;
+  margin-top: 10px;
 
   &:hover {
-    background-color: #5d503f;
+    background-color: ${({ theme }) => theme.colors.transparentYellow2};
+    transition: 300ms ease-in-out;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 15px;
+    margin-top: 5px;
   }
 `
 export const Form = styled.form`
-  height: 500px;
+  height: 300px;
   width: 340px;
-  background-color: rgba(160, 144, 152, 0.5);
+  background-color: ${({ theme }) => theme.colors.transparentGrey};
   position: absolute;
   transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
   border-radius: 50px;
-  border: 2px solid rgba(208, 184, 184, 0.1);
+  border: 2px solid ${({ theme }) => theme.colors.transparentPaleRed};
   padding: 30px;
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.white};
 
   @media screen and (max-width: 768px) {
     width: auto;
@@ -80,21 +105,6 @@ export const FormContent = styled.div`
 
 export const InputController = styled.div`
   text-align: center;
-  /*height: auto;
-  background-color: transparent;
-  padding: 16px;
-  border-radius: 8px;
-  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(5px);
-  backdrop-filter: saturate(180%);
-  transform: scale(0.95);
-  margin-top: 50px;
-
-  &:hover {
-    transform: scale(1);
-    transition: transform 0.3s ease-in-out;
-  } */
-
   display: flex;
   flex-flow: column;
 

@@ -14,17 +14,17 @@ export const Container = styled.div`
 `
 
 export const Form = styled.form`
-  height: 535px;
+  height: 500px;
   width: 340px;
-  background-color: rgba(160, 144, 152, 0.5);
+  background-color: ${({ theme }) => theme.colors.transparentGrey};
   position: absolute;
   transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
   border-radius: 50px;
-  border: 2px solid rgba(208, 184, 184, 0.1);
+  border: 2px solid ${({ theme }) => theme.colors.transparentPaleRed};
   padding: 30px;
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.white};
 
   @media screen and (max-width: 768px) {
     width: auto;
@@ -58,7 +58,7 @@ export const Label = styled.label`
   font-size: 17px;
   font-weight: 600;
   text-align: center;
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.white};
 
   @media screen and (max-width: 768px) {
     font-size: 14px;
@@ -68,17 +68,17 @@ export const Label = styled.label`
 
 export const Input = styled.input`
   height: 35px;
-  background-color: rgba(255, 254, 244, 0.8);
+  background-color: ${({ theme }) => theme.colors.transparentOldWhite};
   padding: 0 10px;
   margin-top: 8px;
   font-size: 16px;
   font-weight: 300;
-  color: #000000;
+  color: ${({ theme }) => theme.colors.black};
   border-radius: 12px;
   border: none;
 
   &:focus {
-    background-color: rgba(255, 254, 244, 0.9);
+    background-color: ${({ theme }) => theme.colors.transparentOldWhite2};
   }
 
   @media screen and (max-width: 768px) {
@@ -89,8 +89,8 @@ export const Input = styled.input`
 export const Button = styled.button`
   margin-top: 50px;
   width: 100%;
-  background-color: rgba(252, 218, 139, 0.5);
-  color: #ffffff;
+  background-color: ${({ theme }) => theme.colors.transparentYellow};
+  color: ${({ theme }) => theme.colors.white};
   padding: 15px 0;
   font-size: 17px;
   font-weight: 600;
@@ -99,7 +99,7 @@ export const Button = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: rgba(252, 218, 139, 0.7);
+    background-color: ${({ theme }) => theme.colors.transparentYellow2};
     transition: 300ms ease-in-out;
   }
 
@@ -109,14 +109,14 @@ export const Button = styled.button`
   }
 `
 export const InputError = styled.span`
-  color: red;
+  color: ${({ theme }) => theme.colors.red};
   font-size: 11px;
   line-height: 0.9;
   margin-top: 8px;
 `
 
 export const Info = styled.p`
-  color: #dff9ff;
+  color: ${({ theme }) => theme.colors.lightBlue};
   display: block;
   font-size: 14px;
   margin-top: 30px;
@@ -124,15 +124,15 @@ export const Info = styled.p`
 `
 
 export const Link = styled(DefaultLink)`
-  color: rgba(252, 218, 139);
+  color: ${({ theme }) => theme.colors.oldYellow};
   font-size: 14px;
   margin-top: 16px;
   text-align: center;
   text-decoration: none;
 
   &:hover {
-    color: rgba(252, 218, 139);
-    text-shadow: 0px 0px 10px rgba(252, 218, 120);
+    color: ${({ theme }) => theme.colors.oldYellow};
+    text-shadow: 0px 0px 10px ${({ theme }) => theme.colors.yellow};
     transition: 200ms ease-in-out;
   }
 `

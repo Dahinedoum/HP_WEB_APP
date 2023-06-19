@@ -23,7 +23,6 @@ import {
 import type { Props } from './allCharactersTypes'
 import Loading from '../../components/Loading/loading'
 
-
 const AllCharacters: FC<Props> = ({ onLogout }) => {
   const navigate = useNavigate()
   const [characters, setCharacters] = useState<Character[]>([])
@@ -61,7 +60,7 @@ const AllCharacters: FC<Props> = ({ onLogout }) => {
     <Container>
       <Header onLogout={onLogout} />
       <Content>
-        <StyledTitle className="title">All Characters</StyledTitle>
+        <StyledTitle>All Characters</StyledTitle>
         <ButtonContainer>
           <BackButton />
           <Button onClick={handleGoToCreate}>Add</Button>

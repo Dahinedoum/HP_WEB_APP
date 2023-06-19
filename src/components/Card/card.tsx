@@ -30,7 +30,6 @@ const Card: FC<Props> = ({
   const [isFav, setIsFav] = useState(character.isFav)
 
   useEffect(() => {
-
     setIsEdit(!!queryData.get('edit'))
   }, [queryData])
 
@@ -57,7 +56,7 @@ const Card: FC<Props> = ({
 
   const handleGoToEditCharacterForm = useCallback(() => {
     navigate(`/characters/${characterId}?edit=true`)
-  }, [navigate])
+  }, [navigate, characterId])
 
   const handleGoToEditStudentForm = useCallback(() => {
     navigate(`/students/${studentId}?edit=true`)

@@ -9,12 +9,11 @@ import {
   Header,
   Image,
 } from './spellCardStyles'
-import { getCachedHarryPotterSpells, setCachedHarryPotterSpells, toggleFavoritesSpells } from '../../services/storage/spells'
+import { toggleFavoritesSpells } from '../../services/storage/spells'
 import Button from '../Button/button'
 
-const SpellCard: FC<Props> = ({ spell, isProfile = false , onRemove }) => {
+const SpellCard: FC<Props> = ({ spell, isProfile = false, onRemove }) => {
   const [isFav, setIsFav] = useState(spell.isFav)
-  
 
   const handleToggleFavorites = useCallback(() => {
     if (spell) {
@@ -23,7 +22,6 @@ const SpellCard: FC<Props> = ({ spell, isProfile = false , onRemove }) => {
     }
   }, [isFav, spell])
 
- 
   return (
     <Container>
       <Content>
@@ -37,7 +35,6 @@ const SpellCard: FC<Props> = ({ spell, isProfile = false , onRemove }) => {
                 {isFav ? 'Remove Fav' : 'Add Fav'}
               </Button>
               <Button onClick={() => onRemove(spell.id)}>Delete</Button>
-
             </FooterContent>
           )}
 

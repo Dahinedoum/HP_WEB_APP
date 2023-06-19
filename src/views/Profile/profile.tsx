@@ -27,10 +27,9 @@ import {
 import Card from '../../components/Card/card'
 import SpellCard from '../../components/SpellCard/spellCard'
 import { Props } from './profileTypes'
-
+import VideoBackground from '../../components/VideoBackground/videoBackground'
 
 const Perfil: FC<Props> = ({ onLogout }) => {
-
   const user = getUserInfo()
   const currentFavsCharacters = getFavoritesCharacters()
   const currentFavsStudents = getFavoritesStudents()
@@ -58,6 +57,7 @@ const Perfil: FC<Props> = ({ onLogout }) => {
   return (
     <>
       <Header onLogout={onLogout} />
+      <VideoBackground videoSrc="/Stars.mp4" />
       <ButtonContainer>
         <BackButton />
       </ButtonContainer>
@@ -68,7 +68,7 @@ const Perfil: FC<Props> = ({ onLogout }) => {
           <InfoItem>Email: {user.email}</InfoItem>
         </InfoContainer>
       </PerfilContainer>
-      <Title>My favorites characters</Title>
+      <Title>My favorite characters</Title>
       <AdditionalContainer>
         {currentFavsCharacters.map((character, index) => (
           <Card
@@ -78,7 +78,7 @@ const Perfil: FC<Props> = ({ onLogout }) => {
           />
         ))}
       </AdditionalContainer>
-      <Title>My favorites students</Title>
+      <Title>My favorite students</Title>
       <AdditionalContainer>
         {currentFavsStudents.map((character, index) => (
           <Card
@@ -98,7 +98,7 @@ const Perfil: FC<Props> = ({ onLogout }) => {
           />
         ))}
       </AdditionalContainer>
-      <Title>My favorites spells</Title>
+      <Title>My favorite spells</Title>
       <AdditionalContainer>
         {currentFavsSpells.map((spell, index) => (
           <SpellCard

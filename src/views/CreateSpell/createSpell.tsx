@@ -1,6 +1,7 @@
 import { FC, memo } from 'react'
 import {
   Button,
+  ButtonContainer,
   Container,
   Form,
   FormContent,
@@ -21,7 +22,9 @@ const NewCard: FC = () => {
   const { handleAddNewSpell } = useLogic()
   return (
     <Container>
-      <BackButton />
+      <ButtonContainer>
+        <BackButton />
+      </ButtonContainer>
       <Formik
         initialValues={initialValues}
         validationSchema={validationNewCardSchema}

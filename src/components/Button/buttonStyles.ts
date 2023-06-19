@@ -1,39 +1,35 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-export const Boton = styled.button`
+export const CustomButton = styled.button`
   display: inline-block;
   margin: 2px;
   margin-bottom: 7px;
   background-image: url('/ButtonBackground.jpg');
-  background-repeat: repeat;
-  color: #fff;
+  background-repeat: no-repeat;
+  color: ${({ theme }) => theme.colors.black};
   border: none;
   border-radius: 5px;
   height: 30px;
   width: auto;
   font-size: 2.5vh;
   cursor: pointer;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s ease;
+  box-shadow: 0px 4px 8px ${({ theme }) => theme.colors.transparentBlack2};
 
   &:hover {
-    background-color: #45a049;
-    transform: scale(1.05);
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 6px 12px ${({ theme }) => theme.colors.transparentBlack3};
   }
 
   &:active {
-    background-color: #3e8e41;
     transform: scale(0.8);
   }
 
   &:focus {
     outline: none;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 4px 8px ${({ theme }) => theme.colors.transparentBlack};
   }
 
   @media (max-width: 768px) {
     font-size: 16px;
     padding: 8px 16px;
   }
-`;
+`
