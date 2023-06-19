@@ -1,6 +1,7 @@
 import { FC, memo } from 'react'
 import {
   Button,
+  ButtonContainer,
   Container,
   Form,
   FormContent,
@@ -21,7 +22,9 @@ const NewCharacter: FC = () => {
   const { handleAddNewCharacter } = useLogic()
   return (
     <Container>
-      <BackButton />
+      <ButtonContainer>
+        <BackButton />
+      </ButtonContainer>
       <Formik
         initialValues={initialValues}
         validationSchema={validationNewCardSchema}
@@ -44,7 +47,7 @@ const NewCharacter: FC = () => {
               <InputController>
                 <Label>Date Of Birth</Label>
                 <Input
-                  type="number"
+                  type="text"
                   name="dateOfBirth"
                   onChange={handleChange}
                   value={values.dateOfBirth}

@@ -31,7 +31,6 @@ const Landing: FC<Props> = ({ onLogout }) => {
     navigate('/spells')
   }, [navigate])
 
-
   return (
     <LandingContainer>
       <Header onLogout={onLogout} />

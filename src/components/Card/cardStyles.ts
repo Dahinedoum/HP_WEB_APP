@@ -6,9 +6,10 @@ export const Container = styled.div`
   padding: 5px;
   margin: 2em;
   border-radius: 20px;
-  box-shadow: 0 0 0 14px #333;
+  box-shadow: 0 0 0 14px ${({ theme }) => theme.colors.darkGrey};
   text-align: center;
   position: relative;
+
   &:before {
     content: 'wizard identification';
     font-family: 'Cinzel';
@@ -30,7 +31,7 @@ export const Container = styled.div`
   &__inner {
     border-radius: 17px;
     overflow: hidden;
-    background: #333;
+    background: ${({ theme }) => theme.colors.darkGrey};
   }
 `
 export const Content = styled.div`
@@ -42,20 +43,19 @@ export const Header = styled.div`
   height: 64px;
 `
 export const Footer = styled.div`
-  /* border-top: 1px solid rgba(128, 0, 0, 0.3); */
   margin-top: 16px;
 `
 
 export const FooterContent = styled.div`
   margin-top: 16px;
 `
-export const ExtraInfo = styled.div`
+export const ExtraInfo = styled.p`
   margin-bottom: 10px;
 `
 export const Image = styled.img`
   width: 150px;
   height: 150px;
   border-radius: 15px;
-  box-shadow: 5px 5px 5px darkgoldenrod;
+  box-shadow: 5px 5px 5px ${({ theme }) => theme.colors.darkGold};
 `
 export const ButtonContainer = styled.div``

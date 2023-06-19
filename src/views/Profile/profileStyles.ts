@@ -12,8 +12,8 @@ export const PerfilContainer = styled.div`
   justify-content: center;
   width: 300px;
   height: 300px;
-  background-color: rgba(255, 254, 244, 0.8);
-  border: 1px solid rgba(128, 0, 0, 0.3);
+  background-color: ${({ theme }) => theme.colors.transparentOldWhite};
+  border: 1px solid ${({ theme }) => theme.colors.transparentBlack3};
   margin: 0 auto;
 `
 
@@ -39,6 +39,7 @@ export const InfoItem = styled.p`
 `
 export const Title = styled.h2`
   margin-left: 20px;
+  color: ${({ theme }) => theme.colors.white};
 `
 
 export const AdditionalContainer = styled.div`

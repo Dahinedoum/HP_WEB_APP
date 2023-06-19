@@ -11,6 +11,7 @@ export const LandingContainer = styled.div`
   flex-direction: column;
   align-items: center;
   margin-bottom: 2rem;
+  padding-bottom: 4rem;
 
   @media screen and (max-width: 768px) {
     height: auto;
@@ -37,24 +38,24 @@ export const Button = styled.button`
   padding: 10px 20px;
   border-radius: 20px;
   cursor: pointer;
-  border: 3px solid #bfa38e;
-  background-color: #e8d9b9;
+  border: 3px solid ${({ theme }) => theme.colors.lightBrown};
+  background-color: ${({ theme }) => theme.colors.sand};
   font-size: 30px;
   min-width: 15px;
   width: 100%;
-  color: #5e4934;
+  color: ${({ theme }) => theme.colors.darkBrown};
   transition: all 0.3s ease-in-out;
-  font-family: "Old English Text MT", serif;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  font-family: 'Old English Text MT', serif;
+  text-shadow: 1px 1px 1px ${({ theme }) => theme.colors.transparentBlack2};
 
   &:hover {
-    background-color: #d9c9a9;
-    color: #422e1e;
+    background-color: ${({ theme }) => theme.colors.ligthSand};
+    color: ${({ theme }) => theme.colors.darkBrown2};
   }
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 5px #bfa38e;
+    box-shadow: 0 0 5px ${({ theme }) => theme.colors.ligthSand2};
   }
 
   @media screen and (max-width: 768px) {
@@ -75,15 +76,15 @@ export const CategoryContainer = styled.div`
   margin-top: 100px;
   justify-content: space-evenly;
 `
-
 export const CategoryContent = styled.div`
-  background-color: rgba(232, 217, 185, 0.7);  padding: 16px;
+  background-color: ${({ theme }) => theme.colors.transparentLigthSand};
+  padding: 16px;
   border-radius: 8px;
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #d6c3a2;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    background-color: ${({ theme }) => theme.colors.ligthSand3};
+    box-shadow: 0 0 10px ${({ theme }) => theme.colors.transparentBlack3};
     transform: scale(1.05);
   }
 
@@ -96,7 +97,7 @@ export const CategoryContent = styled.div`
     margin: auto;
     width: 20px;
     height: 20px;
-    border: 2px solid #d6c3a2;
+    border: 2px solid ${({ theme }) => theme.colors.ligthSand3};
     border-radius: 50%;
   }
 
@@ -109,14 +110,8 @@ export const CategoryContent = styled.div`
     margin: auto;
     width: 20px;
     height: 20px;
-    border: 2px solid #d6c3a2;
+    border: 2px solid ${({ theme }) => theme.colors.ligthSand3};
     border-radius: 50%;
-  }`
-export const CategoryHeaderContainer = styled.div``
-
-export const ImageBackground = styled.div`
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 100vh;
-  width: 100vw;
+  }
 `
+export const CategoryHeaderContainer = styled.div``

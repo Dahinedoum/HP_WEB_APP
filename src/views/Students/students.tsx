@@ -5,9 +5,9 @@ import Card from '../../components/Card/card'
 import {
   Button,
   ButtonContainer,
-  StudentsCards,
-  StudentsContainer,
-  StudentsContent,
+  Cards,
+  Container,
+  Content,
   StyledTitle,
 } from './studentsStyles'
 import { getHarryPotterStudents } from '../../services/harryPotter/students'
@@ -57,16 +57,16 @@ const Students: FC<Props> = ({ onLogout }) => {
   }
 
   return (
-    <StudentsContainer>
+    <Container>
       <Header onLogout={onLogout} />
-      <StudentsContent>
+      <Content>
         <StyledTitle className="title">Students</StyledTitle>
 
         <ButtonContainer>
           <BackButton />
           <Button onClick={handleGoToCreate}>Add</Button>
         </ButtonContainer>
-        <StudentsCards>
+        <Cards>
           {students.map((student, index) => (
             <Card
               key={index}
@@ -75,10 +75,10 @@ const Students: FC<Props> = ({ onLogout }) => {
               onRemove={handleRemoveCharacter}
             />
           ))}
-        </StudentsCards>
-      </StudentsContent>
+        </Cards>
+      </Content>
       <Footer />
-    </StudentsContainer>
+    </Container>
   )
 }
 
