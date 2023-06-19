@@ -5,7 +5,7 @@ export const initialValues = {
   description: '',
 }
 
-export const validationNewCardSchema = object({
+export const validationSchema = object({
   name: string().required('Please enter a valid date'),
   description: string().required('Please enter a valid description'),
 })

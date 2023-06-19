@@ -10,4 +10,3 @@ export const ValidationSchema = object({
     .required('email is a required field'),
   password: string().required('password is a required field'),
 })
-

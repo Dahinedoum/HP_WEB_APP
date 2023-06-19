@@ -1,4 +1,9 @@
 import { FC, memo } from 'react'
+import { Formik } from 'formik'
+import { validationSchema, initialValues } from './constants'
+import BackButton from '../../components/BackButton/backButton'
+import Footer from '../../components/Footer/footer'
+import useLogic from './logic'
 import {
   Button,
   Container,
@@ -10,13 +15,6 @@ import {
   Title,
 } from './createStaffStyles'
 
-import { Formik } from 'formik'
-import BackButton from '../../components/BackButton/backButton'
-import { validationNewCardSchema, initialValues } from './constants'
-import Footer from '../../components/Footer/footer'
-
-import useLogic from './logic'
-
 const NewStaff: FC = () => {
   const { handleAddNewStaff } = useLogic()
   return (
@@ -24,7 +22,7 @@ const NewStaff: FC = () => {
       <BackButton />
       <Formik
         initialValues={initialValues}
-        validationSchema={validationNewCardSchema}
+        validationSchema={validationSchema}
         onSubmit={handleAddNewStaff}
       >
         {({ handleSubmit, handleChange, values }) => (
