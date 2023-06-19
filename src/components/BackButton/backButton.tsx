@@ -4,7 +4,7 @@ import { Button } from './backButtonStyles'
 
 const BackButton: FC = () => {
   const { goBack } = useLogic()
-  return <Button onClick={goBack}>🡠</Button>
+  return <Button onClick={goBack}>U+219x</Button>
 }
 
 export default memo(BackButton)

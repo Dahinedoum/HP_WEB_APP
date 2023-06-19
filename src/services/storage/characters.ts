@@ -4,6 +4,13 @@ import { getUserInfo } from './user'
 const HP_ALL_CHARACTERS_KEY = 'hpAllCharacters'
 const CHARACTERS_FAV = 'charactersFav'
 
+export type CharacterInput = {
+  name: string
+  dateOfBirth: string
+  gender: string
+  house: string
+}
+
 export const getCachedHarryPotterCharacters = (): Character[] => {
   const response = window.localStorage.getItem(HP_ALL_CHARACTERS_KEY)
   const characters = response ? JSON.parse(response) : []
@@ -26,13 +33,6 @@ export const setCachedHarryPotterCharacters = (allCharacters: Character[]) => {
 export const addNewCharacter = (data: CharacterInput) => {
   const characterList = getCachedHarryPotterCharacters()
   setCachedHarryPotterCharacters([...characterList, data as Character])
-}
-
-export type CharacterInput = {
-  name: string
-  dateOfBirth: string
-  gender: string
-  house: string
 }
 
 export const getFavoritesCharacters = (): Character[] => {
@@ -63,9 +63,9 @@ export const toggleFavoritesCharacters = (character: Character) => {
   }
 }
 
-export const getCachedCharacterById = (id: string) => {
+export const getCachedCharacterById = (id: string): Character | null => {
   const characters = getCachedHarryPotterCharacters()
-  return characters.find((character) => character.id === id)
+  return characters.find((character) => character.id === id) || null
 }
 
 export const editCachedCharacter = (id: string, values: EditCharacterInput) => {

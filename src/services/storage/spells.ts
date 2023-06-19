@@ -4,6 +4,11 @@ import { getUserInfo } from './user'
 const HP_SPELLS_KEY = 'hpSpells'
 const SPELLS_FAV = 'spellsFav'
 
+export type SpellsInput = {
+  description: string
+  name: string
+}
+
 export const getCachedHarryPotterSpells = (): Spell[] => {
   const response = window.localStorage.getItem(HP_SPELLS_KEY)
   const spells = response ? JSON.parse(response) : []
@@ -21,11 +26,6 @@ export const setCachedHarryPotterSpells = (spells: Spell[]) => {
 export const addNewSpell = (data: SpellsInput) => {
   const spellList = getCachedHarryPotterSpells()
   setCachedHarryPotterSpells([...spellList, data as Spell])
-}
-
-export type SpellsInput = {
-  description: string
-  name: string
 }
 
 export const getFavoritesSpells = (): Spell[] => {

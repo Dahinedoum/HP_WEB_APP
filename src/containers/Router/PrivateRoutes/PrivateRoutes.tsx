@@ -11,6 +11,7 @@ import Students from '../../../views/Students/students'
 import Staff from '../../../views/Staff/staff'
 import Spells from '../../../views/Spells/spells'
 import type { Props } from './types'
+import FormEdit from '../../../views/FormEdit/FormEdit'
 
 export const PrivateRoutes: FC<Props> = ({ onLogout }) => {
   return (
@@ -21,6 +22,7 @@ export const PrivateRoutes: FC<Props> = ({ onLogout }) => {
         path="/characters"
         element={<AllCharacters onLogout={onLogout} />}
       />
+      <Route path="/characters/:id" element={<FormEdit />} />
       <Route path="/students" element={<Students onLogout={onLogout} />} />
       <Route path="/staff" element={<Staff onLogout={onLogout} />} />
       <Route path="/spells" element={<Spells onLogout={onLogout} />} />

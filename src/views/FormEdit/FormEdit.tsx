@@ -1,8 +1,7 @@
-import { FC, memo } from 'react'
+import { FC, memo, useMemo } from 'react'
 import { Formik } from 'formik'
 import { ValidationSchema } from './constants'
 import useLogic from './logic'
-import type { Props } from './formEditTypes'
 import {
   Button,
   Container,
@@ -12,8 +11,19 @@ import {
   Label,
 } from './formEditStyles'
 
-const FormEdit: FC<Props> = ({ id, initialValues, onEditComplete }) => {
-  const { handleEdit } = useLogic(id, onEditComplete)
+const FormEdit: FC = () => {
+  const { handleEdit, character } = useLogic()
+  const initialValues = useMemo(
+    () => ({
+      name: character?.name || '',
+      house: character?.house || '',
+      gender: character?.gender || '',
+      dateOfBirth: character?.dateOfBirth || '',
+    }),
+    [character]
+  )
+
+  console.log({ initialValues })
 
   return (
     <Container>

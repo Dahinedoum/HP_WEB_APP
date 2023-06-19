@@ -1,23 +1,25 @@
-import { useCallback } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { EditCharacterInput } from '../../models/characters'
-import { editCachedCharacter } from '../../services/storage/characters'
+import { useCallback, useEffect, useMemo, useState } from 'react'
+import { Character, EditCharacterInput } from '../../models/characters'
+import { useParams } from 'react-router-dom'
+import { getCachedCharacterById } from '../../services/storage/characters'
 
-const useLogic = (
-  id: string,
-  onEditComplete: (values: EditCharacterInput) => void
-) => {
-  const navigate = useNavigate()
-  const handleEdit = useCallback(
-    (values: EditCharacterInput) => {
-      editCachedCharacter(id, values)
-      onEditComplete(values)
-      navigate(`/characters/${id}`)
-    },
-    [navigate, onEditComplete, id]
-  )
+const useLogic = () => {
+  const { id } = useParams()
+  const [character, setCharacter] = useState<Character | null>(null)
+  const handleEdit = useCallback((values: EditCharacterInput) => {
+    console.log({ values })
+  }, [])
 
-  return { handleEdit }
+  useEffect(() => {
+    if (id) {
+      const currentCharacter = getCachedCharacterById(id)
+      if (currentCharacter) {
+        setCharacter(currentCharacter)
+      }
+    }
+  }, [id])
+
+  return { handleEdit, character }
 }
 
 export default useLogic

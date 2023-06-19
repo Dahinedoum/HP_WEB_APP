@@ -64,12 +64,12 @@ const AllCharacters: FC<Props> = ({ onLogout }) => {
           <Button onClick={handleGoToCreate}>Add</Button>
         </ButtonContainer>
         <Cards>
-          {characters.map((character, index) => (
+          {characters.map((character) => (
             <Card
-              key={index}
+              key={character.id}
               character={character}
-              isCharacter={true}
               onRemove={handleRemoveCharacter}
+              isCharacter
             />
           ))}
         </Cards>

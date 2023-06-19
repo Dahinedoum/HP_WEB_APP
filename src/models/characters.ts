@@ -26,7 +26,7 @@ export type CharactersResponse = {
 
 export type EditCharacterInput = {
   name: string
-  image: string
+  image?: string
   house: string
   gender: string
   dateOfBirth: string
