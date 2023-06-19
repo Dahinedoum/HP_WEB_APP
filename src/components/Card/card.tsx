@@ -16,6 +16,19 @@ import {
   Image,
 } from './cardStyles'
 
+import {
+  getCachedCharacterById,
+  toggleFavoritesCharacters,
+} from '../../services/storage/characters'
+import Button from '../Button/button'
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
+import { Character, EditCharacterInput } from '../../models/characters'
+import FormEdit from '../../views/FormEdit/FormEdit'
+import { toggleFavoritesStaff } from '../../services/storage/staff'
+import { toggleFavoritesStudents } from '../../services/storage/students'
+
+import { FaHeart, FaTrashAlt, FaPen } from 'react-icons/fa'
+
 const Card: FC<Props> = ({
   character,
   isCharacter = false,
@@ -25,6 +38,22 @@ const Card: FC<Props> = ({
 }) => {
   const { characterId, studentId, staffId } = useParams()
   const navigate = useNavigate()
+
+  const [hpCharacter, setCharacter] = useState<Character | null>(null)
+  const [isEdit, setIsEdit] = useState(false)
+  const [isFav, setIsFav] = useState(character.isFav)
+
+  useEffect(() => {
+    if (characterId) {
+      const retrievedCharacter = getCachedCharacterById(characterId)
+      if (retrievedCharacter) {
+        setCharacter(retrievedCharacter)
+        setIsFav(retrievedCharacter.isFav)
+      }
+    }
+  }, [characterId])
+
+
   const [isFav, setIsFav] = useState(character.isFav)
 
   const handleToggleFavoritesCharacters = useCallback(() => {
@@ -68,34 +97,46 @@ const Card: FC<Props> = ({
           <Image src={character.image} alt={character.name} />
           <Footer>
             <FooterContent>
-              <ExtraInfo>Birth date: {character.dateOfBirth}</ExtraInfo>
-              <ExtraInfo>Gender: {character.gender}</ExtraInfo>
-              <ExtraInfo>House: {character.house}</ExtraInfo>
+              <ExtraInfo>{character.dateOfBirth}</ExtraInfo>
+              <ExtraInfo>{character.gender}</ExtraInfo>
+              <ExtraInfo>{character.house}</ExtraInfo>
               {isCharacter && (
                 <ButtonContainer>
                   <Button onClick={handleToggleFavoritesCharacters}>
-                    {isFav ? 'Remove Fav' : 'Add Fav'}
+                    {isFav ? <FaHeart color="red" /> : <FaHeart />}
                   </Button>
-                  <Button onClick={handleGoToEditCharacterForm}>Edit</Button>
-                  <Button onClick={() => onRemove(character.id)}>Delete</Button>
+                  <Button onClick={handleGoToEditCharacterForm}>
+                    <FaPen />
+                  </Button>
+                  <Button onClick={() => onRemove(character.id)}>
+                    <FaTrashAlt />
+                  </Button>
                 </ButtonContainer>
               )}
               {isStaff && (
                 <ButtonContainer>
                   <Button onClick={handleToggleFavoritesStaff}>
-                    {isFav ? 'Remove Fav' : 'Add Fav'}
+                  {isFav ? <FaHeart color="red" /> : <FaHeart />}
                   </Button>
-                  <Button onClick={handleGoToEditStaffForm}>Edit</Button>
-                  <Button onClick={() => onRemove(character.id)}>Delete</Button>
+                  <Button onClick={handleGoToEditStaffForm}>
+                    <FaPen />
+                  </Button>
+                  <Button onClick={() => onRemove(character.id)}>
+                    <FaTrashAlt />
+                  </Button>
                 </ButtonContainer>
               )}
               {isStudent && (
                 <ButtonContainer>
                   <Button onClick={handleToggleFavoritesStudents}>
-                    {isFav ? 'Remove Fav' : 'Add Fav'}
+                  {isFav ? <FaHeart color="red" /> : <FaHeart />}
                   </Button>
-                  <Button onClick={handleGoToEditStudentForm}>Edit</Button>
-                  <Button onClick={() => onRemove(character.id)}>Delete</Button>
+                  <Button onClick={handleGoToEditStudentForm}>
+                    <FaPen />
+                  </Button>
+                  <Button onClick={() => onRemove(character.id)}>
+                    <FaTrashAlt />
+                  </Button>
                 </ButtonContainer>
               )}
             </FooterContent>
@@ -111,35 +152,47 @@ const Card: FC<Props> = ({
           <Image src="/harryicon.png" alt={character.name} />
           <Footer>
             <FooterContent>
-              <ExtraInfo>Birth date: {character.dateOfBirth}</ExtraInfo>
-              <ExtraInfo>Gender: {character.gender}</ExtraInfo>
-              <ExtraInfo>House: {character.house}</ExtraInfo>
+              <ExtraInfo>{character.dateOfBirth}</ExtraInfo>
+              <ExtraInfo>{character.gender}</ExtraInfo>
+              <ExtraInfo>{character.house}</ExtraInfo>
 
               {isCharacter && (
                 <ButtonContainer>
                   <Button onClick={handleToggleFavoritesCharacters}>
-                    {isFav ? 'Remove Fav' : 'Add Fav'}
+                  {isFav ? <FaHeart color="red" /> : <FaHeart />}
                   </Button>
-                  <Button onClick={handleGoToEditCharacterForm}>Edit</Button>
-                  <Button onClick={() => onRemove(character.id)}>Delete</Button>
+                  <Button onClick={handleGoToEditCharacterForm}>
+                    <FaPen />
+                  </Button>
+                  <Button onClick={() => onRemove(character.id)}>
+                    <FaTrashAlt />
+                  </Button>
                 </ButtonContainer>
               )}
               {isStaff && (
                 <ButtonContainer>
                   <Button onClick={handleToggleFavoritesStaff}>
-                    {isFav ? 'Remove Fav' : 'Add Fav'}
+                  {isFav ? <FaHeart color="red" /> : <FaHeart />}
                   </Button>
-                  <Button onClick={handleGoToEditStaffForm}>Edit</Button>
-                  <Button onClick={() => onRemove(character.id)}>Delete</Button>
+                  <Button onClick={handleGoToEditStaffForm}>
+                    <FaPen />
+                  </Button>
+                  <Button onClick={() => onRemove(character.id)}>
+                    <FaTrashAlt />
+                  </Button>
                 </ButtonContainer>
               )}
               {isStudent && (
                 <ButtonContainer>
                   <Button onClick={handleToggleFavoritesStudents}>
-                    {isFav ? 'Remove Fav' : 'Add Fav'}
+                  {isFav ? <FaHeart color="red" /> : <FaHeart />}
                   </Button>
-                  <Button onClick={handleGoToEditStudentForm}>Edit</Button>
-                  <Button onClick={() => onRemove(character.id)}>Delete</Button>
+                  <Button onClick={handleGoToEditStudentForm}>
+                    <FaPen />
+                  </Button>
+                  <Button onClick={() => onRemove(character.id)}>
+                    <FaTrashAlt />
+                  </Button>
                 </ButtonContainer>
               )}
             </FooterContent>
@@ -149,4 +202,5 @@ const Card: FC<Props> = ({
     )
   }
 }
+
 export default memo(Card)
