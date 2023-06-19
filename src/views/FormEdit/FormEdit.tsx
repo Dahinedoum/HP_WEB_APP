@@ -60,6 +60,15 @@ const FormEdit: FC<Props> = ({ id, initialValues, onEditComplete }) => {
                 value={values.dateOfBirth}
               />
             </InputController>
+            <InputController>
+              <Label>Image</Label>
+              <Input
+                type="text"
+                name="image"
+                onChange={handleChange}
+                value={values.image}
+              />
+            </InputController>
             <Button type="submit">Edit Character</Button>
           </Form>
         )}

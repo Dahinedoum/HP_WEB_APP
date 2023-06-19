@@ -4,6 +4,12 @@ export type SpellsResponse = {
   description: string
 }
 
+export type EditSpellInput = {
+  id: string
+  name: string
+  description: string
+}
+
 export const normalizeSpells = (input: SpellsResponse) => ({
   id: input?.id || '',
   name: input?.name || '',
