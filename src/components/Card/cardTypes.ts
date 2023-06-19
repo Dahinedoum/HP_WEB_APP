@@ -5,4 +5,5 @@ export type Props = {
   isCharacter?: boolean
   isStudent?: boolean
   isStaff?: boolean
+  onRemove: (characterId: string) => void
 }

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.header`
-  background-color: black;
+background-image: linear-gradient(to bottom, #694639, #4f2f41); 
   height: 90px;
   position: fixed;
   width: 100%;
@@ -29,20 +29,23 @@ export const ButtonContainer = styled.div`
 `
 
 export const Button = styled.button`
-  background-color: #d2b178;
+  background-image: url('/ButtonBackground.jpg');
+  background-repeat: repeat;
   color: black;
   padding: 10px 20px;
   border: none;
   margin-right: 10px;
   cursor: pointer;
-  font-size: 15px;
-  border-radius: 5px;
-  transition: all 0.3s ease-in-out;
+  font-size: 20px;
+  border-radius: 15px;
+  transition: all 0.1s ease-in-out;
   min-width: 115px;
+  font-family: 'Times New Roman', serif;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 
   &:hover {
     background-color: #965e25;
-    text-shadow: 0px 0px 10px #ffffff;
+    text-shadow: 0px 0px 10px black;
   }
 
   &:focus {

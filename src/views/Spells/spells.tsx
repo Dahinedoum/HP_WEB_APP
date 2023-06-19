@@ -14,8 +14,12 @@ import { getHarryPotterSpells } from '../../services/harryPotter/spells'
 import SpellCard from '../../components/SpellCard/spellCard'
 import Footer from '../../components/Footer/footer'
 import { useNavigate } from 'react-router-dom'
+
+import { getCachedHarryPotterSpells, setCachedHarryPotterSpells } from '../../services/storage/spells'
+
 import type { Props } from './spellsTypes'
 import Loading from '../../components/Loading/loading'
+
 
 const Spells: FC<Props> = ({ onLogout }) => {
   const navigate = useNavigate()
@@ -36,6 +40,15 @@ const Spells: FC<Props> = ({ onLogout }) => {
     fetchSpells()
   }, [fetchSpells])
 
+  const handleRemoveSpell = useCallback((spellId: string) => {
+    const currentSpells = getCachedHarryPotterSpells()
+    const filteredSpells = currentSpells.filter(
+      (CachedHarryPotterSpell) => spellId !== CachedHarryPotterSpell.id
+    )
+    setCachedHarryPotterSpells(filteredSpells)
+    setSpells(filteredSpells)
+  }, [])
+  
   if (isLoading) {
     return <Loading />
   }
@@ -51,7 +64,7 @@ const Spells: FC<Props> = ({ onLogout }) => {
         </ButtonContainer>
         <Cards>
           {spells.map((spell, index) => (
-            <SpellCard key={index} spell={spell} />
+            <SpellCard key={index} spell={spell} onRemove={handleRemoveSpell} />
           ))}
         </Cards>
       </Content>

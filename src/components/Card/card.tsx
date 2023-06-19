@@ -21,6 +21,7 @@ const Card: FC<Props> = ({
   isCharacter = false,
   isStudent = false,
   isStaff = false,
+  onRemove,
 }) => {
   const { characterId, studentId, staffId } = useParams()
   const [queryData] = useSearchParams()
@@ -29,6 +30,7 @@ const Card: FC<Props> = ({
   const [isFav, setIsFav] = useState(character.isFav)
 
   useEffect(() => {
+
     setIsEdit(!!queryData.get('edit'))
   }, [queryData])
 
@@ -82,6 +84,7 @@ const Card: FC<Props> = ({
                     {isFav ? 'Remove Fav' : 'Add Fav'}
                   </Button>
                   <Button onClick={handleGoToEditCharacterForm}>Edit</Button>
+                  <Button onClick={() => onRemove(character.id)}>Delete</Button>
                 </ButtonContainer>
               )}
               {isStaff && (
@@ -90,6 +93,7 @@ const Card: FC<Props> = ({
                     {isFav ? 'Remove Fav' : 'Add Fav'}
                   </Button>
                   <Button onClick={handleGoToEditStaffForm}>Edit</Button>
+                  <Button onClick={() => onRemove(character.id)}>Delete</Button>
                 </ButtonContainer>
               )}
               {isStudent && (
@@ -98,6 +102,7 @@ const Card: FC<Props> = ({
                     {isFav ? 'Remove Fav' : 'Add Fav'}
                   </Button>
                   <Button onClick={handleGoToEditStudentForm}>Edit</Button>
+                  <Button onClick={() => onRemove(character.id)}>Delete</Button>
                 </ButtonContainer>
               )}
             </FooterContent>
@@ -123,6 +128,7 @@ const Card: FC<Props> = ({
                     {isFav ? 'Remove Fav' : 'Add Fav'}
                   </Button>
                   <Button onClick={handleGoToEditCharacterForm}>Edit</Button>
+                  <Button onClick={() => onRemove(character.id)}>Delete</Button>
                 </ButtonContainer>
               )}
               {isStaff && (
@@ -131,6 +137,7 @@ const Card: FC<Props> = ({
                     {isFav ? 'Remove Fav' : 'Add Fav'}
                   </Button>
                   <Button onClick={handleGoToEditStaffForm}>Edit</Button>
+                  <Button onClick={() => onRemove(character.id)}>Delete</Button>
                 </ButtonContainer>
               )}
               {isStudent && (
@@ -139,6 +146,7 @@ const Card: FC<Props> = ({
                     {isFav ? 'Remove Fav' : 'Add Fav'}
                   </Button>
                   <Button onClick={handleGoToEditStudentForm}>Edit</Button>
+                  <Button onClick={() => onRemove(character.id)}>Delete</Button>
                 </ButtonContainer>
               )}
             </FooterContent>

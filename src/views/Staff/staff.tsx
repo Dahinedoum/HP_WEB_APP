@@ -14,6 +14,12 @@ import { Character } from '../../models/characters'
 import { getHarryPotterStaff } from '../../services/harryPotter/staff'
 import Footer from '../../components/Footer/footer'
 import { useNavigate } from 'react-router-dom'
+
+import {
+  getCachedHarryPotterCharacters,
+  setCachedHarryPotterCharacters,
+} from '../../services/storage/characters'
+
 import type { Props } from './staffTypes'
 import Loading from '../../components/Loading/loading'
 
@@ -26,6 +32,15 @@ const Staff: FC<Props> = ({ onLogout }) => {
     const staffList = await getHarryPotterStaff()
     setStaffs(staffList)
     setIsLoading(false)
+  }, [])
+  const handleRemoveCharacter = useCallback((characterId: string) => {
+    const currentCharacters = getCachedHarryPotterCharacters()
+    const filteredCharacters = currentCharacters.filter(
+      (CachedHarryPotterCharacter) =>
+        characterId !== CachedHarryPotterCharacter.id
+    )
+    setCachedHarryPotterCharacters(filteredCharacters)
+    setStaffs(filteredCharacters)
   }, [])
 
   const handleGoToCreate = useCallback(() => {
@@ -40,6 +55,7 @@ const Staff: FC<Props> = ({ onLogout }) => {
     return <Loading />
   }
 
+
   return (
     <Container>
       <Header onLogout={onLogout} />
@@ -52,7 +68,12 @@ const Staff: FC<Props> = ({ onLogout }) => {
         </ButtonContainer>
         <Cards>
           {staffs.map((staff, index) => (
-            <Card key={index} character={staff} isStaff={true} />
+            <Card
+              key={index}
+              character={staff}
+              isStaff={true}
+              onRemove={handleRemoveCharacter}
+            />
           ))}
         </Cards>
       </Content>
