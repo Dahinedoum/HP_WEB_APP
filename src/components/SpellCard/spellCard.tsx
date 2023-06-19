@@ -12,15 +12,6 @@ import {
   Image,
 } from './spellCardStyles'
 
-import {
-  getCachedHarryPotterSpells,
-  setCachedHarryPotterSpells,
-  toggleFavoritesSpells,
-} from '../../services/storage/spells'
-import Button from '../Button/button'
-import { FaHeart, FaTrashAlt } from 'react-icons/fa'
-
-
 const SpellCard: FC<Props> = ({ spell, isProfile = false, onRemove }) => {
   const [isFav, setIsFav] = useState(spell.isFav)
 
@@ -41,13 +32,9 @@ const SpellCard: FC<Props> = ({ spell, isProfile = false, onRemove }) => {
             <FooterContent>
               <ExtraInfo>{spell.description}</ExtraInfo>
               <Button onClick={handleToggleFavorites}>
-                {isFav ? <FaHeart color="red" /> : <FaHeart />}
+                {isFav ? 'Remove Fav' : 'Add Fav'}
               </Button>
-              <Button onClick={() => onRemove(spell.id)}>
-                <FaTrashAlt />
-              </Button>
-
-
+              <Button onClick={() => onRemove(spell.id)}>Delete</Button>
             </FooterContent>
           )}
 
